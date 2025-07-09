@@ -292,12 +292,25 @@
       border: 2px solid var(--accent);
     }
     .portfolio-card img {
+      display: block;
       width: 100%;
-      height: 180px;
+      height: auto;
+      aspect-ratio: 3/4;
+      min-height: 160px;
       object-fit: cover;
-      background: #222;
+      background: #000;
       border-bottom: 1.5px solid #333;
       border-radius: 16px 16px 0 0;
+    }
+    @media (max-width: 900px) {
+      .portfolio-card img {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 600px) {
+      .portfolio-card img {
+        min-height: 120px;
+      }
     }
     .portfolio-card .card-content {
       padding: 16px 12px 12px 12px;
@@ -325,7 +338,7 @@
       color: #ffffff;
     }
     .portfolio-card p {
-      color: #ffffff93 !important;
+      color: #b9adadce !important;
     }
     /* Contact */
     .contact-form {
@@ -522,23 +535,23 @@
           <img src="https://i.ibb.co/FrfmDtq/Picsart-25-06-29-18-49-25-732.png" alt="Talktwirl App">
           <div class="card-content">
             <h3 style="color:var(--accent);">Talktwirl</h3>
-            <p>A social media app that allows you to connect with your friends and family.</p>
+            <p>A social media app that allows you to connect with your friends and family. Enjoy real-time messaging, media sharing, and a vibrant community—all in a secure.</p>
           </div>
         </a>
-        <a class="portfolio-card" href="https://luohino.github.io/Talktwirl/" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-card"href="https://luohino.github.io/Talktwirl/" target="_blank" rel="noopener noreferrer">
           <img src="https://i.ibb.co/FrfmDtq/Picsart-25-06-29-18-49-25-732.png" alt="Talktwirl Web">
           <div class="card-content">
             <h3 style="color:var(--accent);">Talktwirl Web</h3>
-            <p>Web version of Talktwirl. Real-time, responsive, and secure.</p>
+            <p>Web version of Talktwirl. Real-time, secure. Built for social interaction,messaging, and sharing-accessible from only mobile devices not for desktop</p>
           </div>
         </a>
-        <div class="portfolio-card">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="AI Automation Bot">
+        <a class="portfolio-card" href="https://github.com/Luohino/Twirl-Notes/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">
+          <img src="https://i.ibb.co/6Rcq7SRr/file-000000009d5861fdabf79f500ee00322.png" alt="AI Automation Bot">
           <div class="card-content">
-            <h3 style="color:var(--accent);">AI Automation Bot</h3>
-            <p>Custom bot that automates workflows and boosts productivity for teams.</p>
+            <h3 style="color:var(--accent);">Twirl-Notes</h3>
+            <p>Twirl-Notes is a next-generation note-taking app designed to boost your productivity and creativity. Powered by advanced AI tool,It helps you organize.</p>
           </div>
-        </div>
+        </a>
         <div class="portfolio-card">
           <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="UI/UX Mobile Design">
           <div class="card-content">
