@@ -28,7 +28,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #181a2a 0%, #23264d 100%);
+      background: #000;
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
@@ -466,9 +466,23 @@
     #dynamic-name {
       transition: opacity 0.4s;
     }
+    #particles-js {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .container, .glass-card, header, footer {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <div class="container">
     <header>
       <span class="logo">LUOHINO</span>
@@ -552,20 +566,7 @@
             <p>Twirl-Notes is a next-generation note-taking app designed to boost your productivity and creativity. Powered by advanced AI tool,It helps you organize.</p>
           </div>
         </a>
-        <div class="portfolio-card">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="UI/UX Mobile Design">
-          <div class="card-content">
-            <h3 style="color:var(--accent);">UI/UX Mobile Design</h3>
-            <p>Modern, user-friendly mobile app interfaces for startups and creators.</p>
-          </div>
-        </div>
-        <div class="portfolio-card">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Personal Portfolio">
-          <div class="card-content">
-            <h3 style="color:var(--accent);">Personal Portfolio</h3>
-            <p>This very site! Designed, coded, and deployed by me.</p>
-          </div>
-        </div>
+        
       </div>
     </div>
     <div class="glass-card" id="contact">
@@ -600,7 +601,43 @@
       <div style="margin-top:8px;font-size:0.9rem;">Luohino</div>
     </footer>
   </div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+          "color": { "value": "#00d4ff" },
+          "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 } },
+          "opacity": { "value": 0.8, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.4, "sync": false } },
+          "size": { "value": 5, "random": true, "anim": { "enable": true, "speed": 2, "size_min": 1, "sync": false } },
+          "line_linked": { "enable": true, "distance": 150, "color": "#00d4ff", "opacity": 0.6, "width": 1.5 },
+          "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 } }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { "enable": true, "mode": "repulse" },
+            "onclick": { "enable": true, "mode": "push" },
+            "resize": true
+          },
+          "modes": {
+            "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
+            "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+            "repulse": { "distance": 100, "duration": 0.4 },
+            "push": { "particles_nb": 4 },
+            "remove": { "particles_nb": 2 }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+  <script>
+ 
+
+      
+
     // Animate skill bars on load
     window.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.skill-bar-fill').forEach(bar => {
