@@ -7,7 +7,7 @@
 <meta name="keywords" content="Luohino, Flutter Developer, TalkTwirl, Cybersecurity, Indie Developer, Bihar">
 <meta name="author" content="Luohino">
   <meta name="google-site-verification" content="HSGy6gDR5tXaAMaDs_sRc9bUseV2Q_rwZxjxiyMRqYE" />
-  <title>Luohino | AI-Ready Portfolio</title>
+  <title>Luohino Portfolio</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
@@ -433,7 +433,12 @@
     }
     @media (max-width: 600px) {
       .container { padding: 0 1vw; }
-      .hero-avatar img { width: 140px; height: 140px; min-width: 140px; min-height: 140px; }
+      .hero-avatar img {
+        width: 180px;
+        height: 180px;
+        min-width: 180px;
+        min-height: 180px;
+      }
       .portfolio-card { max-width: 98vw; }
       .glass-card { padding: 18px 6px; }
       .skills-list { flex-direction: column; align-items: center; }
@@ -465,6 +470,9 @@
     }
     #dynamic-name {
       transition: opacity 0.4s;
+      display: inline-block;
+      min-width: 7ch; /* Reserve space for the longer name 'Luohino' */
+      text-align: left;
     }
     #particles-js {
       position: fixed;
