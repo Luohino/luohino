@@ -644,23 +644,6 @@
       margin-top: 4px;
     }
 
-    /* 3. Custom cursor */
-    body {
-      cursor: none;
-    }
-    #custom-cursor {
-      position: fixed;
-      top: 0; left: 0;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #00fff7 60%, #ff8000 100%);
-      box-shadow: 0 0 16px #00fff7cc, 0 0 8px #ff8000cc;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s cubic-bezier(.77,0,.18,1), opacity 0.2s;
-      opacity: 0.85;
-    }
     /* Custom Scrollbar for Webkit browsers (Chrome, Edge, Safari) */
     ::-webkit-scrollbar {
       width: 10px;
@@ -685,7 +668,6 @@
 </head>
 <body>
   <div id="particles-js"></div>
-  <div id="custom-cursor"></div>
   <div class="container">
     <header>
       <span class="logo">LUOHINO</span>
@@ -1043,15 +1025,6 @@
         card.classList.remove('tilted');
       });
     });
-
-    // Custom cursor
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    document.addEventListener('mousedown', () => cursor.style.opacity = 0.5);
-    document.addEventListener('mouseup', () => cursor.style.opacity = 0.85);
   </script>
 </body>
 </html>
