@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content=" developer and cybersecurity enthusiast.">
+  <meta name="description" content="Luohino is a self-taught Flutter developer and cybersecurity enthusiast from Bihar. Creator of TalkTwirl. Check out his portfolio.">
 <meta name="keywords" content="Luohino, Flutter Developer, TalkTwirl, Cybersecurity, Indie Developer, Bihar">
 <meta name="author" content="Luohino">
   <meta name="google-site-verification" content="HSGy6gDR5tXaAMaDs_sRc9bUseV2Q_rwZxjxiyMRqYE" />
@@ -165,17 +165,31 @@
       align-items: center;
       position: relative;
       z-index: 2;
+      background: none;
+      border-radius: 50%;
+      padding: 0;
+      box-shadow: none;
+      animation: none;
     }
     .hero-avatar img {
       width: 180px;
       height: 180px;
       object-fit: cover;
       border-radius: 50%;
-      border: 6px solid var(--accent);
-      box-shadow: 0 0 32px #ff800066, 0 0 0 8px #232323;
-      background: #232323;
+      border: 3px solid #00fff7;
+      box-shadow: 0 0 24px #00fff7cc, 0 2px 16px #000a;
+      background: #181a2a;
+      padding: 0;
       filter: grayscale(0.2);
       animation: float 3s ease-in-out infinite;
+      transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-avatar img:hover {
+      box-shadow: 0 0 36px #00fff7, 0 4px 24px #ff8000cc;
+      border: 3px solid #ff8000;
+      transform: scale(1.04);
     }
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -242,6 +256,13 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .timeline-icon {
       background: var(--accent);
@@ -268,77 +289,80 @@
     .portfolio-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 32px;
       justify-content: center;
       margin-top: 18px;
     }
     .portfolio-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      width: 260px;
-      min-height: 260px;
-      box-shadow: var(--shadow);
+      background: rgba(20,22,34,0.85);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px #00fff733, 0 1.5px 8px #0008;
+      border-left: 6px solid #00fff7;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      min-width: 240px;
+      max-width: 320px;
+      width: 100%;
+      padding: 24px 18px 18px 18px;
       position: relative;
-      transition: transform 0.25s, box-shadow 0.25s;
-      border: 2px solid transparent;
+      transition: transform 0.22s, box-shadow 0.22s;
       cursor: pointer;
+      filter: none;
     }
-    .portfolio-card:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 12px 36px #00fff766;
-      border: 2px solid var(--accent);
+    .portfolio-card:hover, .portfolio-card:focus {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 36px #00fff799, 0 2px 16px #000a;
+      border-left: 6px solid #ff8000;
+      filter: brightness(1.05);
+      outline: none;
     }
     .portfolio-card img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 3/4;
-      min-height: 160px;
+      width: 90px;
+      height: 90px;
       object-fit: cover;
-      background: #000;
-      border-bottom: 1.5px solid #333;
-      border-radius: 16px 16px 0 0;
-    }
-    @media (max-width: 900px) {
-      .portfolio-card img {
-        min-height: 140px;
-      }
-    }
-    @media (max-width: 600px) {
-      .portfolio-card img {
-        min-height: 120px;
-      }
-    }
-    .portfolio-card .card-content {
-      padding: 16px 12px 12px 12px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .portfolio-card .featured {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: #00fff7cc;
-      color: #ffffff;
-      font-size: 0.85rem;
-      padding: 3px 10px;
-      border-radius: 8px;
-      font-weight: 700;
-      box-shadow: 0 0 18px #ffffffcc;
+      border-radius: 50%;
+      box-shadow: 0 2px 16px #00fff7cc;
+      margin-bottom: 18px;
+      background: #111;
+      border: 3px solid #181a2a;
     }
     .portfolio-card h3 {
-      color:  #00fff7cc !important;
-    }
-    .portfolio-card a, .portfolio-card a:visited {
-      color: #ffffff;
+      color: #00fff7;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-align: center;
     }
     .portfolio-card p {
-      color: #b9adadce !important;
+      color: #e6e6e6;
+      font-size: 0.98rem;
+      font-weight: 400;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .portfolio-card .view-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #00fff7 60%, #ff8000 100%);
+      color: #181a2a;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 22px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 8px #00fff7cc;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin: 0 auto;
+    }
+    .portfolio-card .view-btn:hover {
+      background: linear-gradient(90deg, #ff8000 60%, #00fff7 100%);
+      color: #fff;
+      box-shadow: 0 0 16px #ff8000cc;
     }
     /* Contact */
     .contact-form {
@@ -427,9 +451,8 @@
       .container { padding: 0 2vw; }
       .hero { flex-direction: column; align-items: center; min-height: 0; }
       .hero-avatar img { width: 140px; height: 140px; }
-      .portfolio-card { width: 98vw; min-width: 0; max-width: 340px; }
-      .skills-list { gap: 10px; }
-      .about-timeline { gap: 10px; }
+      .portfolio-list { gap: 18px; }
+      .portfolio-card { min-width: 160px; max-width: 98vw; }
     }
     @media (max-width: 600px) {
       .container { padding: 0 1vw; }
@@ -439,7 +462,8 @@
         min-width: 180px;
         min-height: 180px;
       }
-      .portfolio-card { max-width: 98vw; }
+      .portfolio-list { flex-direction: column; align-items: center; }
+      .portfolio-card { width: 98vw; max-width: 98vw; }
       .glass-card { padding: 18px 6px; }
       .skills-list { flex-direction: column; align-items: center; }
       .hero-actions {
@@ -487,16 +511,187 @@
       position: relative;
       z-index: 1;
     }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Global buttery transitions */
+    a, button, .portfolio-card, .timeline-item, input, select, textarea {
+      transition: 
+        color 0.3s cubic-bezier(.77,0,.18,1),
+        background 0.3s cubic-bezier(.77,0,.18,1),
+        box-shadow 0.3s cubic-bezier(.77,0,.18,1),
+        border 0.3s cubic-bezier(.77,0,.18,1),
+        transform 0.3s cubic-bezier(.77,0,.18,1);
+    }
+
+    .portfolio-card:hover, .portfolio-card:focus {
+      transform: translateY(-8px) scale(1.045);
+      box-shadow: 0 16px 48px #00fff799, 0 2px 16px #000a;
+      border-left: 6px solid #ff8000;
+      filter: brightness(1.07);
+    }
+
+    button, .nav-btn, .hero-actions a {
+      will-change: transform;
+    }
+    button:hover, .nav-btn:hover, .hero-actions a:hover,
+    button:focus, .nav-btn:focus, .hero-actions a:focus {
+      transform: scale(1.045);
+      box-shadow: 0 0 24px #00fff7cc, 0 0 8px #ff8000cc;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      box-shadow: 0 0 16px #00fff7cc, 0 0 4px #ff8000cc;
+      border-color: #00fff7;
+      transform: scale(1.025);
+    }
+
+    .timeline-item.visible .timeline-icon {
+      animation: popIn 0.5s cubic-bezier(.77,0,.18,1);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      80% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    .section-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.77,0,.18,1), transform 0.8s cubic-bezier(.77,0,.18,1);
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Staggered fade-in for portfolio cards and skills */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    .portfolio-card, .skill-chip {
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(.77,0,.18,1) forwards;
+    }
+    .portfolio-card.animated, .skill-chip.animated {
+      opacity: 1;
+    }
+    .portfolio-card.animated { animation-delay: var(--delay, 0s);}
+    .skill-chip.animated { animation-delay: var(--delay, 0s);}
+
+    /* Animated gradient border for hero */
+    .hero.section-fade.visible {
+      background: var(--glass-bg);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Parallax avatar */
+    .hero-avatar {
+      transition: transform 0.3s cubic-bezier(.77,0,.18,1);
+    }
+
+    /* Footer socials pulse */
+    .footer-socials a {
+      transition: transform 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover {
+      transform: scale(1.18);
+      color: #00fff7;
+      text-shadow: 0 0 8px #00fff7cc;
+    }
+    /* 1. Animated gradient text for name */
+    #dynamic-name {
+      background: linear-gradient(90deg, #00fff7, #ffffff, #00fff7);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shimmer 2.5s linear infinite;
+    }
+    @keyframes shimmer {
+      to { background-position: 200% center; }
+    }
+
+    /* 2. 3D tilt for portfolio cards */
+    .portfolio-card {
+      perspective: 600px;
+      will-change: transform;
+    }
+    .portfolio-card.tilted {
+      transition: transform 0.15s cubic-bezier(.77,0,.18,1);
+    }
+
+    /* 4. Animated gradient underline for section titles */
+    .section-title {
+      display: inline-block;
+      position: relative;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      height: 4px;
+      width: 100%;
+      background: linear-gradient(90deg, #00fff7, #ff8000, #00fff7);
+      background-size: 200% auto;
+      animation: shimmer 2.5s linear infinite;
+      border-radius: 2px;
+      margin-top: 4px;
+    }
+
+    /* 3. Custom cursor */
+    body {
+      cursor: none;
+    }
+    #custom-cursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00fff7 60%, #ff8000 100%);
+      box-shadow: 0 0 16px #00fff7cc, 0 0 8px #ff8000cc;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s cubic-bezier(.77,0,.18,1), opacity 0.2s;
+      opacity: 0.85;
+    }
+    /* Custom Scrollbar for Webkit browsers (Chrome, Edge, Safari) */
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: #181a2a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #00fff7;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #00fff7cc;
+      border: 2px solid #181a2a;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00b8c6;
+    }
+
+    /* For Firefox */
+    html {
+      scrollbar-color: #00fff7 #181a2a;
+      scrollbar-width: thin;
+    }
   </style>
 </head>
 <body>
   <div id="particles-js"></div>
+  <div id="custom-cursor"></div>
   <div class="container">
     <header>
       <span class="logo">LUOHINO</span>
-      <a href="#contact" class="nav-btn">Hire Me</a>
+      <a href="#contact" class="nav-btn">Contact Me</a>
     </header>
-    <div class="glass-card hero">
+    <div class="glass-card hero section-fade">
       <div class="hero-info">
         <h2>Hi, I am <span id="dynamic-name">Luohino</span></h2>
         <div class="tagline" id="dynamic-tagline"></div>
@@ -515,7 +710,7 @@
         <img src="https://i.ibb.co/Gh8RS0V/luohinoo-14031124-192815972.jpg" alt="Aniket Luohino Photo">
       </div>
     </div>
-    <div class="glass-card skills-section">
+    <div class="glass-card skills-section section-fade">
       <div style="text-align:center;font-size:1.2rem;font-weight:700;margin-bottom:10px;">My Top Skills</div>
       <div class="skills-list">
         <div class="skill-chip"><i class="fas fa-shield-alt"></i>Cybersecurity</div>
@@ -532,53 +727,105 @@
         <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
         </div>
         </div>
-    <div class="glass-card">
-      <div style="font-size:1.3rem;font-weight:700;margin-bottom:10px;color:var(--accent);">About Me</div>
+    <div class="glass-card section-fade" id="about">
+      <div class="section-title">About Me</div>
       <div class="about-timeline">
         <div class="timeline-item">
           <div class="timeline-icon"><i class="fas fa-bolt"></i></div>
-          <div class="timeline-content">Started coding at 15 in a small village, with just a phone and a dream.</div>
+          <div class="timeline-content">
+            Self-taught and resilient: Started coding at 15 in a small village, with just a phone and a dream. Learned everything myself, proving that passion and determination beat any obstacle.
+          </div>
         </div>
+        
         <div class="timeline-item">
-          <div class="timeline-icon"><i class="fas fa-mobile-alt"></i></div>
-          <div class="timeline-content">Built a full social app (Talktwirl) solo in 21 days using Flutter & Firebase.</div>
+          <div class="timeline-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="timeline-content">
+            Security and quality focused: I don’t just build—I secure, optimize, and polish every project. My work is trusted by real users and delivers real value.
+          </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-icon"><i class="fas fa-brain"></i></div>
-          <div class="timeline-content">Now exploring AI/ML, automation, and digital freedom. I create, automate, and secure.</div>
+          <div class="timeline-content">
+            Always growing: Now diving into AI/ML, automation, and digital freedom. I love learning new tech and applying it to solve real-world problems.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-users"></i></div>
+          <div class="timeline-content">
+            Trusted by clients: Worked with happy clients and teams worldwide. Known for clear communication, reliability, and exceeding expectations.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+          <div class="timeline-content">
+            Ready for any challenge: Whether it’s building, automating, or securing, I bring energy, creativity, and a “let’s get it done” attitude to every project.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-code-branch"></i></div>
+          <div class="timeline-content">
+            Open Source Contributor: Actively contribute to open source projects, sharing knowledge and code with the global developer community.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+          <div class="timeline-content">
+            Awarded & Recognized: Received recognition for innovation and technical excellence in hackathons, coding competitions, and online communities.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-hands-helping"></i></div>
+          <div class="timeline-content">
+            Mentor & Community Builder: Mentor junior developers and help others grow. Believe in giving back and building a supportive tech community.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="timeline-content">
+            Strong Work Ethic: Known for reliability, meeting deadlines, and going the extra mile to ensure project success.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="timeline-content">
+            Cross-Disciplinary Skills: Blend design, development, and security to deliver complete, user-focused solutions.
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="timeline-content">
+            Passion for Problem Solving: Love tackling tough challenges and finding creative, efficient solutions.
+          </div>
         </div>
       </div>
     </div>
-    <div class="glass-card">
-      <div style="font-size:1.3rem;font-weight:700;margin-bottom:10px;color:var(--accent);">Portfolio</div>
+    <div class="glass-card section-fade">
+      <div class="section-title">Portfolio</div>
       <div class="portfolio-list">
-        <a class="portfolio-card" href="https://github.com/Luohino/Talktwirl/releases/tag/v1" target="_blank" rel="noopener noreferrer">
-          <span class="featured">Featured</span>
+        <a class="portfolio-card" href="https://github.com/Luohino/Talktwirl/releases/tag/v1" target="_blank" rel="noopener" tabindex="0" aria-label="View Talktwirl project">
           <img src="https://i.ibb.co/FrfmDtq/Picsart-25-06-29-18-49-25-732.png" alt="Talktwirl App">
-          <div class="card-content">
-            <h3 style="color:var(--accent);">Talktwirl</h3>
-            <p>A social media app that allows you to connect with your friends and family. Enjoy real-time messaging, media sharing, and a vibrant community—all in a secure.</p>
-          </div>
+          <h3>Talktwirl</h3>
+          <p>A social media app that allows you to connect with your friends and family. Enjoy real-time messaging, media sharing, and a vibrant community—all in a secure.</p>
         </a>
-        <a class="portfolio-card"href="https://luohino.github.io/Talktwirl/" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-card"href="https://luohino.github.io/Talktwirl/" target="_blank" rel="noopener" tabindex="0" aria-label="View Talktwirl Web project">
           <img src="https://i.ibb.co/FrfmDtq/Picsart-25-06-29-18-49-25-732.png" alt="Talktwirl Web">
-          <div class="card-content">
-            <h3 style="color:var(--accent);">Talktwirl Web</h3>
-            <p>Web version of Talktwirl. Real-time, secure. Built for social interaction,messaging, and sharing-accessible from only mobile devices not for desktop</p>
-          </div>
+          <h3>Talktwirl Web</h3>
+          <p>Web version of Talktwirl. Real-time, secure. Built for social interaction,messaging, and sharing-accessible from only mobile devices not for desktop</p>
         </a>
-        <a class="portfolio-card" href="https://github.com/Luohino/Twirl-Notes/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-card" href="https://github.com/Luohino/Twirl-Notes/releases/tag/v1.0.0" target="_blank" rel="noopener" tabindex="0" aria-label="View Twirl-Notes project">
           <img src="https://i.ibb.co/6Rcq7SRr/file-000000009d5861fdabf79f500ee00322.png" alt="AI Automation Bot">
-          <div class="card-content">
-            <h3 style="color:var(--accent);">Twirl-Notes</h3>
-            <p>Twirl-Notes is a next-generation note-taking app designed to boost your productivity and creativity. Powered by advanced AI tool,It helps you organize.</p>
-          </div>
+          <h3>Twirl-Notes</h3>
+          <p>Twirl-Notes is a next-generation note-taking app designed to boost your productivity and creativity. Powered by advanced AI tool,It helps you organize.</p>
         </a>
-        
+        <a class="portfolio-card" href="https://luohino.github.io/Twirlshop/" target="_blank" rel="noopener" tabindex="0" aria-label="View Twirlshop project">
+          <img src="https://i.ibb.co/WWJ8YwTW/Picsart-25-07-19-17-13-20-520.png" alt="Twirlshop">
+          <h3>Twirlshop</h3>
+          <p>Futuristic UI, smooth animations, and a next-gen shopping experience. Everything feels fast, modern, and seamless.</p>
+        </a>
       </div>
     </div>
-    <div class="glass-card" id="contact">
-      <div style="font-size:1.3rem;font-weight:700;margin-bottom:10px;color:var(--accent);">Contact Me</div>
+    <div class="glass-card section-fade" id="contact">
+      <div class="section-title">Contact Me</div>
       <form class="contact-form" action="https://formsubmit.co/aniketsingh821305@gmail.com" method="POST">
         <div class="half"><input type="text" name="name" placeholder="Name" required></div>
         <div class="half"><input type="email" name="email" placeholder="Email" required></div>
@@ -605,7 +852,7 @@
         <a href="https://github.com/Luohino" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/luohino" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
       </div>
-      <div style="margin:8px 0;">aniketsingh821305@gmail.com | +91 9117901046</div>
+      <div style="margin:8px 0;">aniketsingh821305@gmail.com | +919117901046</div>
       <div style="margin-top:8px;font-size:0.9rem;">Luohino</div>
     </footer>
   </div>
@@ -729,6 +976,82 @@
         nameEl.style.opacity = 1;
       }, 400);
     }, 2000);
+
+    // Buttery scroll-in animation for timeline items
+    function revealTimelineItems() {
+      const items = document.querySelectorAll('.timeline-item');
+      const triggerBottom = window.innerHeight * 0.92;
+      items.forEach(item => {
+        const boxTop = item.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          item.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealTimelineItems);
+    window.addEventListener('DOMContentLoaded', revealTimelineItems);
+
+    // Section fade-in on scroll
+    function revealSections() {
+      document.querySelectorAll('.section-fade').forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
+        const triggerBottom = window.innerHeight * 0.92;
+        if (boxTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('DOMContentLoaded', revealSections);
+
+    // Staggered animation for portfolio cards and skills
+    function staggeredReveal(selector) {
+      const items = document.querySelectorAll(selector);
+      items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('animated'), 200 + i * 120);
+      });
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      staggeredReveal('.portfolio-card');
+      staggeredReveal('.skill-chip');
+    });
+
+    // Parallax hero avatar
+    const heroAvatar = document.querySelector('.hero-avatar img');
+    if (heroAvatar) {
+      document.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        heroAvatar.style.transform = `translate(${x}px, ${y}px) scale(1.04)`;
+      });
+      document.addEventListener('mouseleave', () => {
+        heroAvatar.style.transform = '';
+      });
+    }
+
+    // 3D tilt for portfolio cards
+    document.querySelectorAll('.portfolio-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        card.style.transform = `rotateY(${x/18}deg) rotateX(${-y/18}deg) scale(1.045)`;
+        card.classList.add('tilted');
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.classList.remove('tilted');
+      });
+    });
+
+    // Custom cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.addEventListener('mousedown', () => cursor.style.opacity = 0.5);
+    document.addEventListener('mouseup', () => cursor.style.opacity = 0.85);
   </script>
 </body>
 </html>
