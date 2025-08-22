@@ -31,13 +31,13 @@ const ProjectDetails = () => {
   // Twirlshop custom gallery and details
   if (project.id === 1) {
     const screenshots = [
-      '/assets/Twirlshop/Screenshot 2025-08-21 230215.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230222.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230235.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230300.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230323.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230345.png',
-      '/assets/Twirlshop/Screenshot 2025-08-21 230356.png',
+      'https://i.postimg.cc/mr54cXdX/Screenshot-2025-08-21-230215.png',
+      'https://i.postimg.cc/cJHZLyct/Screenshot-2025-08-21-230222.png',
+      'https://i.postimg.cc/Dyr7CcZ0/Screenshot-2025-08-21-230235.png',
+      'https://i.postimg.cc/52pbJN8M/Screenshot-2025-08-21-230300.png',
+      'https://i.postimg.cc/cCYdGRBD/Screenshot-2025-08-21-230323.png',
+      'https://i.postimg.cc/66GWZKxd/Screenshot-2025-08-21-230345.png',
+      'https://i.postimg.cc/kg7qLt6c/Screenshot-2025-08-21-230356.png',
     ];
     const demoUrl = "https://luohino.github.io/Twirlshop/";
     const codeUrl = "https://github.com/Luohino/Twirlshop/tree/main";
@@ -220,19 +220,19 @@ const ProjectDetails = () => {
   if (project.id === 2 || project.id === 8) {
     // Use the same images for both TalkTwirl and TalkTwirl Web
     const talktwirlImages = [
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.21_7425e168.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.23_626e5090.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.26_9d2124e3.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.27_157dcd83.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.28_a9ba2fc0.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.28_c4154081.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.28_d043f1bd.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.29_427f6451.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.29_d68bc36d.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.30_b3c07d76.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.30_c8ea0257.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.13.31_1f0acf33.jpg',
-      '/assets/talktwirl/WhatsApp Image 2025-08-21 at 23.20.07_25484983.jpg',
+      'https://i.postimg.cc/zvMH0FX0/Whats-App-Image-2025-08-21-at-23-13-21-7425e168.jpg',
+      'https://i.postimg.cc/T1hWV4GK/Whats-App-Image-2025-08-21-at-23-13-23-626e5090.jpg',
+      'https://i.postimg.cc/05HSkPdD/Whats-App-Image-2025-08-21-at-23-13-26-9d2124e3.jpg',
+      'https://i.postimg.cc/Qx9TVw0P/Whats-App-Image-2025-08-21-at-23-13-27-157dcd83.jpg',
+      'https://i.postimg.cc/DzFJjZnk/Whats-App-Image-2025-08-21-at-23-13-28-a9ba2fc0.jpg',
+      'https://i.postimg.cc/fTG0dCPb/Whats-App-Image-2025-08-21-at-23-13-28-c4154081.jpg',
+      'https://i.postimg.cc/dVGZjdMj/Whats-App-Image-2025-08-21-at-23-13-28-d043f1bd.jpg',
+      'https://i.postimg.cc/Bb8XLPcD/Whats-App-Image-2025-08-21-at-23-13-29-427f6451.jpg',
+      'https://i.postimg.cc/TP9yZ63y/Whats-App-Image-2025-08-21-at-23-13-29-d68bc36d.jpg',
+      'https://i.postimg.cc/9MQ42nDL/Whats-App-Image-2025-08-21-at-23-13-30-b3c07d76.jpg',
+      'https://i.postimg.cc/0jLrp5c4/Whats-App-Image-2025-08-21-at-23-13-30-c8ea0257.jpg',
+      'https://i.postimg.cc/zDMLmp8k/Whats-App-Image-2025-08-21-at-23-13-31-1f0acf33.jpg',
+      'https://i.postimg.cc/wTm19JBY/Whats-App-Image-2025-08-21-at-23-20-07-25484983.jpg',
     ];
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-[#181c2b] flex flex-col px-2 py-8">
@@ -262,11 +262,7 @@ const ProjectDetails = () => {
                   <Badge key={i} variant="secondary" className="text-xs px-2 py-0.5 bg-muted/50 text-foreground-subtle">{tag}</Badge>
                 ))}
               </div>
-              {(project.id === 2) && (
-                <h1 className="text-3xl md:text-4xl font-bold text-gradient-primary mb-2 leading-tight">
-                  {project.title}
-                </h1>
-              )}
+              {/* Removed redundant project.title heading for TalkTwirl - Social Media App */}
               {project.id === 2 || project.id === 8 ? (
                 <div className="max-w-none text-foreground-subtle">
                   <h2 className="text-3xl md:text-4xl font-bold text-gradient-primary mb-2 leading-tight">{project.id === 2 ? 'Talktwirl – Next-Generation Social Communication Platform' : 'Talktwirl Web – Advanced Social Communication for the Modern Web'}</h2>
@@ -394,16 +390,15 @@ const ProjectDetails = () => {
   // Twirl Notes custom gallery and details
   if (project.id === 7) {
     const twirlNotesImages = [
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.21_a7d4a844.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.29_f9225e97.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.35_17bc0b98.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.37_dbdbe62b.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.40_1fe6fdb5.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.41_18a27957.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.42_c324b763.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.43_de95db72.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.16.44_cee79b02.jpg',
-      '/assets/twirl-notes/WhatsApp Image 2025-08-21 at 23.20.07_daa721fd.jpg',
+      'https://i.postimg.cc/1RH8XPGJ/Whats-App-Image-2025-08-21-at-23-16-21-a7d4a844.jpg',
+      'https://i.postimg.cc/NjyFdHWz/Whats-App-Image-2025-08-21-at-23-16-29-f9225e97.jpg',
+      'https://i.postimg.cc/pLgT4dvX/Whats-App-Image-2025-08-21-at-23-16-35-17bc0b98.jpg',
+      'https://i.postimg.cc/0NDQsq5G/Whats-App-Image-2025-08-21-at-23-16-37-dbdbe62b.jpg',
+      'https://i.postimg.cc/pTvdV1yw/Whats-App-Image-2025-08-21-at-23-16-40-1fe6fdb5.jpg',
+      'https://i.postimg.cc/j5hSDQ7L/Whats-App-Image-2025-08-21-at-23-16-41-18a27957.jpg',
+      'https://i.postimg.cc/RhVVK67G/Whats-App-Image-2025-08-21-at-23-16-42-c324b763.jpg',
+      'https://i.postimg.cc/vHZc6jXM/Whats-App-Image-2025-08-21-at-23-16-43-de95db72.jpg',
+      'https://i.postimg.cc/fTqk7Kgd/Whats-App-Image-2025-08-21-at-23-16-44-cee79b02.jpg',
     ];
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-[#181c2b] flex flex-col px-2 py-8">

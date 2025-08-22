@@ -1,3 +1,10 @@
+// External image URLs for projects
+const projectImages: Record<string, string> = {
+  'Twirlshop – Futuristic E‑Commerce Landing': 'https://i.postimg.cc/K8txHD84/twirlshop.png', // Note: EN DASH (U+2013) and non-breaking hyphen (U+2011) in original title
+  'TalkTwirl - Social Media App': 'https://i.postimg.cc/FsMhpBm2/talktwirl.jpg',
+  'Twirl Notes - Mobile App': 'https://i.postimg.cc/YqGp1Hc6/Tiwrlnotes.jpg',
+  'TalkTwirl Web - Social App': 'https://i.postimg.cc/FsMhpBm2/talktwirl.jpg',
+};
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -89,26 +96,16 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         <div className="relative overflow-hidden cursor-pointer" onClick={() => setIsHovered((v) => !v)}>
           <div className={`${isMobileShowcase ? 'h-[300px]' : 'aspect-[2/1]'} bg-gradient-subtle relative`}>
             {/* Project Image */}
-            {isMobileShowcase ? (
+            {project.hasImage && (
               <img
-                src={project.id === 2 ? '/talktwirl.jpg' : project.id === 7 ? '/Tiwrlnotes.jpg' : '/talktwirl.jpg'}
+                src={projectImages[project.title] || project.image}
                 alt={project.title}
-                className="h-full block object-contain mx-auto max-w-[220px]"
+                className={isMobileShowcase ? "h-full block object-contain mx-auto max-w-[220px]" : "w-full h-full object-cover"}
                 style={{ objectPosition: 'top center' }}
               />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
-                {project.id === 1 ? (
-                  <img 
-                    src="/twirlshop.png" 
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: 'top center' }}
-                  />
-                ) : (
-                  <div className="text-4xl opacity-20"></div>
-                )}
-              </div>
+            )}
+            {!project.hasImage && !isMobileShowcase && (
+              <div className="text-4xl opacity-20"></div>
             )}
             
             {/* Overlay & Actions */}
