@@ -91,7 +91,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             {/* Project Image */}
             {isMobileShowcase ? (
               <img
-                src={project.id === 2 ? '/assets/talktwirl.jpg' : project.id === 7 ? '/assets/Tiwrlnotes.jpg' : '/assets/webtalktiwrl.jpg'}
+                src={project.id === 2 ? '/talktwirl.jpg' : project.id === 7 ? '/Tiwrlnotes.jpg' : '/talktwirl.jpg'}
                 alt={project.title}
                 className="h-full block object-contain mx-auto max-w-[220px]"
                 style={{ objectPosition: 'top center' }}
@@ -100,7 +100,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               <div className="absolute inset-0 flex items-center justify-center">
                 {project.id === 1 ? (
                   <img 
-                    src="/assets/twirlshop.png" 
+                    src="/twirlshop.png" 
                     alt={project.title}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'top center' }}
