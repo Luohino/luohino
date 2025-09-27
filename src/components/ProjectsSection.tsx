@@ -4,6 +4,8 @@ const projectImages: Record<string, string> = {
   'TalkTwirl - Social Media App': 'https://i.postimg.cc/FsMhpBm2/talktwirl.jpg',
   'Twirl Notes - Mobile App': 'https://i.postimg.cc/YqGp1Hc6/Tiwrlnotes.jpg',
   'TalkTwirl Web - Social App': 'https://i.postimg.cc/FsMhpBm2/talktwirl.jpg',
+  'Pinsry – Bedtime Stories Community Platform': 'https://i.postimg.cc/Px2621yK/IMG-20250921-001428.png',
+  'MegaChat – Modern Real-Time Communication Platform': 'https://i.postimg.cc/kXpgLZGw/Screenshot-2025-09-27-20-03-05-90-548ba7fa16f53ae863800a8b3860f296.jpg',
 };
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -74,12 +76,33 @@ const projects: Project[] = [
     featured: false,
     filters: ["Web"],
     hasImage: true
+  },
+  {
+    id: 9,
+    title: "Pinsry – Bedtime Stories Community Platform",
+    description: "A Flutter-powered story-sharing ecosystem with AI assistance, offline reading, and social engagement features designed for the modern storyteller.",
+    image: "/api/placeholder/600/400",
+    tags: ["Flutter", "Mobile App", "Social Media", "AI"],
+    demoUrl: "https://github.com/Luohino/Pinsry/releases/tag/v2",
+    featured: true,
+    filters: ["Flutter", "App"],
+    hasImage: true
+  },
+  {
+    id: 10,
+    title: "MegaChat – Modern Real-Time Communication Platform",
+    description: "A comprehensive mobile messaging application built with Flutter and Supabase, designed to deliver seamless real-time communication experiences.",
+    image: "/api/placeholder/600/400",
+    tags: ["Flutter", "Mobile App", "Real-time", "Chat"],
+    demoUrl: "https://github.com/Luohino/Megachat/releases/tag/v1.0.0",
+    featured: true,
+    filters: ["Flutter", "App"],
+    hasImage: true
   }
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isMobileShowcase = project.id === 2 || project.id === 7 || project.id === 8;
+  const isMobileShowcase = project.id === 2 || project.id === 7 || project.id === 8 || project.id === 9 || project.id === 10;
   const navigate = useNavigate();
 
   return (
@@ -88,159 +111,78 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      className={`${project.featured && !isMobileShowcase ? 'lg:col-span-2' : ''} ${isMobileShowcase ? 'justify-self-center md:justify-self-auto' : ''}`}
+      className="w-full"
     >
-      <Card className={`group glass border-border-subtle hover:border-primary/30 overflow-hidden transition-all duration-500 hover-lift ${isMobileShowcase ? 'w-[240px]' : ''}`}>
-        <div className="relative overflow-hidden cursor-pointer" onClick={() => setIsHovered((v) => !v)}>
-          <div className={`${isMobileShowcase ? 'h-[300px]' : 'aspect-[2/1]'} bg-gradient-subtle relative`}>
-            {/* Project Image */}
-            {project.hasImage && (
-              <img
-                src={projectImages[project.title] || project.image}
-                alt={project.title}
-                className={isMobileShowcase ? "h-full block object-contain mx-auto max-w-[220px]" : "w-full h-full object-cover"}
-                style={{ objectPosition: 'top center' }}
-              />
-            )}
-            {!project.hasImage && !isMobileShowcase && (
-              <div className="text-4xl opacity-20"></div>
-            )}
-            
-            {/* Overlay & Actions */}
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
+      <div className={`project-card project-card-horizontal ${
+        isMobileShowcase ? 'project-card-mobile' : ''
+      }`}>
+        {/* Project Image */}
+        <div className="project-card-image">
+          {project.hasImage && (
+            <img
+              src={projectImages[project.title] || project.image}
+              alt={project.title}
             />
-            
-            {/* Action Buttons */}
-            <motion.div 
-              className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ 
-                opacity: isHovered ? 1 : 0,
-                scale: isHovered ? 1 : 0.8
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {project.demoUrl && (
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full"
-                  onClick={e => e.stopPropagation()}
-                >
-                  <Button 
-                    size="sm"
-                    className="btn-premium text-primary-foreground font-medium w-full"
-                  >
-                    <Play className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                </a>
-              )}
-
-              {project.codeUrl && (
-                <a
-                  href={project.codeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full"
-                  onClick={e => e.stopPropagation()}
-                >
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="glass border-primary/30 text-primary hover:bg-primary/10 w-full"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                </a>
-              )}
-              
-              <Button 
-                size="sm" 
-                variant="outline"
-                className="glass border-primary/30 text-primary hover:bg-primary/10 w-full"
-                onClick={(e) => { e.stopPropagation(); navigate(`/project/${project.id}`); }}
-              >
-                <Eye className="w-4 h-4 mr-2" />
-                Details
-              </Button>
-            </motion.div>
-
-            {/* Featured Badge */}
-            {project.featured && (
-              <div className="absolute top-4 left-4">
-                <Badge className="bg-accent text-accent-foreground font-semibold">
-                  Featured
-                </Badge>
-              </div>
-            )}
-
-            {/* Category Badge */}
-            <div className="absolute top-4 right-4">
-              <Badge variant="outline" className="glass border-primary/30 text-primary">
-                {project.filters?.[0] ?? 'Project'}  
-              </Badge>
-            </div>
-          </div>
+          )}
         </div>
 
-        <CardContent className="p-3 sm:p-2">
-          <div className="space-y-2 sm:space-y-1">
-            <div>
-              <h3 className="text-base sm:text-sm font-bold text-gradient-primary mb-1 group-hover:text-gradient-hero transition-all duration-300">
-                {project.title}
-              </h3>
-              <p className="text-sm sm:text-xs text-foreground-subtle leading-relaxed line-clamp-2 sm:line-clamp-1">
-                {project.description}
-              </p>
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1">
-              {project.tags.slice(0, 2).map((tag, tagIndex) => (
-                <Badge 
-                  key={tagIndex} 
-                  variant="secondary"
-                  className="text-xs px-2 sm:px-1 py-0.5 bg-muted/50 text-foreground-subtle hover:bg-primary/10 hover:text-primary transition-colors"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-
-            {/* Links */}
-            <div className="flex items-center space-x-2 sm:space-x-1 pt-1">
-              {project.demoUrl && (
-                <a 
-                  href={project.demoUrl}
-                  className="flex items-center text-primary hover:text-primary-glow transition-colors font-medium"
-                >
-                  <ExternalLink className="w-4 h-4 mr-1" />
-                  Live Demo
-                </a>
-              )}
-              
-              {project.codeUrl && (
-                <a 
-                  href={project.codeUrl}
-                  className="flex items-center text-foreground-subtle hover:text-primary transition-colors font-medium"
-                >
-                  <Github className="w-4 h-4 mr-1" />
-                  Source
-                </a>
-              )}
-            </div>
+        {/* Project Content */}
+        <div className="project-card-content">
+          {/* Header */}
+          <div className="project-card-header">
+            <h3 className="project-card-title">
+              {project.title}
+            </h3>
+            <p className="project-card-description">
+              {project.description}
+            </p>
           </div>
-        </CardContent>
-      </Card>
+
+          {/* Tags */}
+          <div className="project-card-tags">
+            {project.tags.slice(0, 4).map((tag, tagIndex) => (
+              <span key={tagIndex} className="project-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Actions */}
+          <div className="project-card-actions">
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-btn project-btn-primary"
+              >
+                <Play className="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+
+            {project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-btn project-btn-outline"
+              >
+                <Github className="w-4 h-4" />
+                Source
+              </a>
+            )}
+            
+            <button 
+              className="project-btn project-btn-outline"
+              onClick={() => navigate(`/project/${project.id}`)}
+            >
+              <Eye className="w-4 h-4" />
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -278,7 +220,7 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full liquid-glass-3d mb-6"
           >
             <span className="text-primary font-medium">My portfolio </span>
           </motion.div>
@@ -318,15 +260,21 @@ const ProjectsSection = () => {
         </motion.div>
 
         {/* Projects Grid */}
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-3 place-items-center md:place-items-stretch">
-          {filteredProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              index={index}
-            />
-          ))}
+        <div className="flex flex-col items-start space-y-8 w-full">
+          {filteredProjects.map((project, index) => {
+            const isMobileShowcase = project.id === 2 || project.id === 7 || project.id === 8 || project.id === 9 || project.id === 10;
+            return (
+              <div 
+                key={project.id}
+                className="w-full max-w-5xl"
+              >
+                <ProjectCard 
+                  project={project} 
+                  index={index}
+                />
+              </div>
+            );
+          })}
         </div>
 
         

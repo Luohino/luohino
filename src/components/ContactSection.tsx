@@ -74,12 +74,43 @@ const ContactSection = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSentPopup, setShowSentPopup] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear errors when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+  
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // EmailJS credentials (not used in this sample, just keeping as reference)
@@ -87,21 +118,54 @@ const ContactSection = () => {
   // const EMAILJS_TEMPLATE_ID = 'template_v1mj4n4';
   // const EMAILJS_USER_ID = 'MGUFtn_6srblaCgRc';
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate form before submitting
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
-    setShowSentPopup(true);
-    setTimeout(() => {
-      setShowSentPopup(false);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        budget: ''
+    
+    try {
+      // Create FormData object to send via fetch
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('budget', formData.budget);
+      formDataToSend.append('_subject', `New Contact Form Submission from ${formData.name}`);
+      formDataToSend.append('_captcha', 'false');
+      formDataToSend.append('_template', 'table');
+      
+      const response = await fetch('https://formsubmit.co/aniketsingh821305@gmail.com', {
+        method: 'POST',
+        body: formDataToSend
       });
+      
+      if (response.ok) {
+        setShowSentPopup(true);
+        setTimeout(() => {
+          setShowSentPopup(false);
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+            budget: ''
+          });
+          setIsSubmitting(false);
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again or contact me directly.');
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -134,7 +198,7 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full liquid-glass-3d mb-4 sm:mb-6"
           >
             <span className="text-primary font-medium">Let's Connect</span>
           </motion.div>
@@ -176,8 +240,6 @@ const ContactSection = () => {
                   </div>
                 </div>
                 <form 
-                  action="https://formsubmit.co/aniketsingh821305@gmail.com" 
-                  method="POST" 
                   className="space-y-4 sm:space-y-6"
                   onSubmit={handleSubmit}
                 >
@@ -188,11 +250,16 @@ const ContactSection = () => {
                       <Input
                         name="name"
                         placeholder="Your full name"
-                        className="glass border-border-subtle focus:border-primary/50 bg-background/50"
+                        className={`glass focus:border-primary/50 bg-background/50 ${
+                          errors.name ? 'border-red-500' : 'border-border-subtle'
+                        }`}
                         required
                         value={formData.name}
                         onChange={handleInputChange}
                       />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                      )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">Email</label>
@@ -200,11 +267,16 @@ const ContactSection = () => {
                         name="email"
                         type="email"
                         placeholder="your@email.com"
-                        className="glass border-border-subtle focus:border-primary/50 bg-background/50"
+                        className={`glass focus:border-primary/50 bg-background/50 ${
+                          errors.email ? 'border-red-500' : 'border-border-subtle'
+                        }`}
                         required
                         value={formData.email}
                         onChange={handleInputChange}
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                      )}
                     </div>
                   </div>
                   <div>
@@ -238,17 +310,23 @@ const ContactSection = () => {
                       name="message"
                       placeholder="Tell me about your project, goals, and timeline..."
                       rows={6}
-                      className="glass border-border-subtle focus:border-primary/50 bg-background/50 resize-none"
+                      className={`glass focus:border-primary/50 bg-background/50 resize-none ${
+                        errors.message ? 'border-red-500' : 'border-border-subtle'
+                      }`}
                       value={formData.message}
                       onChange={handleInputChange}
                     />
+                    {errors.message && (
+                      <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                    )}
                   </div>
                   <Button
                     type="submit"
                     className="w-full btn-premium text-primary-foreground font-semibold text-base sm:text-lg py-3 sm:py-4 hover-lift"
                     disabled={isSubmitting}
                   >
-                    <Send className="w-5 h-5 mr-2" />Send Message
+                    <Send className="w-5 h-5 mr-2" />
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>

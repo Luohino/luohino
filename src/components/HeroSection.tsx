@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Instagram } from 'lucide-react';
@@ -75,8 +76,8 @@ const HeroSection = () => {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 pb-12 sm:pt-20 sm:pb-20">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           
           {/* Hero Content */}
           <motion.div
@@ -112,7 +113,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               Full Stack{' '}
               <span className="text-gradient-hero animate-gradient-shift whitespace-nowrap">
@@ -127,7 +128,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl text-foreground-subtle mb-8 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl text-foreground-subtle mb-6 sm:mb-8 max-w-2xl"
             >
              15-year-old coder & builder | Full Stack & App Dev | Cybersecurity Explorer
 Vision-driven digital creator-crafting interactive experiences at the edge of technology
@@ -138,11 +139,11 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8"
             >
               <Button
                 onClick={scrollToProjects}
-                className="btn-premium text-primary-foreground font-semibold text-lg px-8 py-4 hover-lift"
+                className="btn-premium text-primary-foreground font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover-lift"
               >
                 View My Work
                 <ArrowDown className="ml-2 w-5 h-5" />
@@ -151,7 +152,7 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
               <Button
                 onClick={scrollToContact}
                 variant="outline"
-                className="glass border-primary/30 text-primary hover:bg-primary/10 font-semibold text-lg px-8 py-4 hover-lift"
+                className="glass border-primary/30 text-primary hover:bg-primary/10 font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 hover-lift"
               >
                 Get In Touch
                 <Mail className="ml-2 w-5 h-5" />
@@ -227,16 +228,16 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-glow opacity-50 blur-3xl animate-pulse-glow"></div>
-              <div className="relative p-4 lg:p-8 rounded-2xl glass border border-primary/20">
-                <h3 className="text-xl lg:text-2xl font-bold text-center mb-2 text-gradient-primary">
+              <div className="relative p-2 sm:p-4 lg:p-8 rounded-2xl glass border border-primary/20">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-center mb-2 text-gradient-primary">
                   Socials Coverflow
                 </h3>
-                <div className="h-48 lg:h-64 rounded-lg overflow-hidden" style={{ perspective: '1000px' }}>
+                <div className="h-56 sm:h-48 lg:h-64 rounded-lg overflow-hidden" style={{ perspective: '1000px' }}>
                   <div className="relative h-full flex items-center justify-center select-none">
                     {slides.map((src, i) => {
                       // Calculate position relative to center
                       const pos = (i - currentIndex + slides.length) % slides.length;
-                      let style = {
+                      let style: CSSProperties = {
                         position: 'absolute',
                         left: '50%',
                         top: '50%',
@@ -254,7 +255,7 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
                           zIndex: 30,
                           opacity: 1,
                           transform: 'translate(-50%, -50%) scale(1.35) rotateY(0deg) translateZ(80px)',
-                          boxShadow: '0 16px 48px 0 rgba(31, 38, 135, 0.35), 0 2.5px 16px 0 rgba(0,0,0,0.18)',
+                          boxShadow: '0 16px 48px 0 rgba(255, 255, 255, 0.15), 0 2.5px 16px 0 rgba(0,0,0,0.18)',
                           filter: 'none',
                         };
                       } else if (pos === 1) {
@@ -300,7 +301,7 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
                           src={src}
                           alt="social"
                           style={style}
-                          className="w-80 h-450 object-cover shadow-xl select-none pointer-events-none"
+                          className="w-40 h-30 lg:w-80 lg:h-450 object-cover shadow-xl select-none pointer-events-none"
                           draggable={false}
                         />
                       );
@@ -324,7 +325,7 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-20 right-20 w-16 h-16 bg-gradient-primary rounded-full opacity-20 blur-sm"
+        className="hidden sm:block absolute top-10 sm:top-20 right-4 sm:right-20 w-8 sm:w-12 lg:w-16 h-8 sm:h-12 lg:h-16 bg-gradient-primary rounded-full opacity-20 blur-sm"
       />
       
       <motion.div
@@ -338,26 +339,9 @@ Vision-driven digital creator-crafting interactive experiences at the edge of te
           ease: "easeInOut",
           delay: 1
         }}
-        className="absolute bottom-40 left-10 w-12 h-12 bg-secondary rounded-full opacity-30 blur-sm"
+        className="hidden sm:block absolute bottom-20 sm:bottom-40 left-4 sm:left-10 w-6 sm:w-10 lg:w-12 h-6 sm:h-10 lg:h-12 bg-secondary rounded-full opacity-30 blur-sm"
       />
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center space-y-2 text-foreground-subtle hover:text-primary transition-colors cursor-pointer"
-          onClick={scrollToProjects}
-        >
-          <span className="text-sm font-medium">Scroll to explore</span>
-          <ArrowDown className="w-5 h-5" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

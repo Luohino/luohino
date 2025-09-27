@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Play, Github, ArrowLeft } from 'lucide-react';
+import { Play, Github, ArrowLeft, Eye } from 'lucide-react';
 import projects from '../data/projects';
 
 const ProjectDetails = () => {
@@ -19,10 +19,10 @@ const ProjectDetails = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center" style={{background: 'linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 2%) 100%)'}}>
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Project Not Found</h2>
-          <Button onClick={() => navigate(-1)}><ArrowLeft className="mr-2" />Go Back</Button>
+          <h2 className="text-2xl font-bold mb-4 text-white">Project Not Found</h2>
+          <Button onClick={() => navigate(-1)} className="glass border-primary/30 text-primary hover:bg-primary/10"><ArrowLeft className="mr-2" />Go Back</Button>
         </div>
       </div>
     );
@@ -42,7 +42,7 @@ const ProjectDetails = () => {
     const demoUrl = "https://luohino.github.io/Twirlshop/";
     const codeUrl = "https://github.com/Luohino/Twirlshop/tree/main";
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background to-[#181c2b] flex flex-col px-2 py-8">
+      <div className="dark-page flex flex-col px-2 py-8">
         {/* Back Button */}
         <div className="max-w-6xl w-full mx-auto mb-4">
           <Button variant="ghost" className="flex items-center gap-2 text-lg" onClick={() => navigate(-1)}>
@@ -235,7 +235,7 @@ const ProjectDetails = () => {
       'https://i.postimg.cc/wTm19JBY/Whats-App-Image-2025-08-21-at-23-20-07-25484983.jpg',
     ];
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background to-[#181c2b] flex flex-col px-2 py-8">
+      <div className="dark-page flex flex-col px-2 py-8">
         {/* Back Button */}
         <div className="max-w-6xl w-full mx-auto mb-4">
           <Button variant="ghost" className="flex items-center gap-2 text-lg" onClick={() => navigate(-1)}>
@@ -401,7 +401,7 @@ const ProjectDetails = () => {
       'https://i.postimg.cc/fTqk7Kgd/Whats-App-Image-2025-08-21-at-23-16-44-cee79b02.jpg',
     ];
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background to-[#181c2b] flex flex-col px-2 py-8">
+      <div className="dark-page flex flex-col px-2 py-8">
         {/* Back Button */}
         <div className="max-w-6xl w-full mx-auto mb-4">
           <Button variant="ghost" className="flex items-center gap-2 text-lg" onClick={() => navigate(-1)}>
@@ -523,6 +523,253 @@ const ProjectDetails = () => {
     );
   }
 
+  // Pinsry custom gallery and details
+  if (project.id === 9) {
+    const pinsryImages = [
+      'https://i.postimg.cc/x8NKMm4d/Screenshot-2025-09-27-19-42-57-41-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/RqrwR0kF/Screenshot-2025-09-27-19-43-04-18-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/BtW2gvr1/Screenshot-2025-09-27-19-43-05-46-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/7P5cmQFc/Screenshot-2025-09-27-19-43-07-34-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/HWrKBhGm/Screenshot-2025-09-27-19-43-09-27-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/gc175Hdn/Screenshot-2025-09-27-19-43-12-23-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/XNtPhk3d/Screenshot-2025-09-27-19-43-14-25-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/CM92tsYv/Screenshot-2025-09-27-19-43-16-96-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/CM92tsYQ/Screenshot-2025-09-27-19-43-23-27-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/gkR7PLks/Screenshot-2025-09-27-19-43-31-78-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/hPxYqQPp/Screenshot-2025-09-27-19-43-37-48-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/7ZkWPP50/Screenshot-2025-09-27-19-43-42-41-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/28vtfL8t/Screenshot-2025-09-27-19-43-45-63-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/28vtfL8P/Screenshot-2025-09-27-19-43-50-16-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/T36422KY/Screenshot-2025-09-27-19-43-52-71-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/DwPYSVGd/Screenshot-2025-09-27-19-43-54-04-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/52SkXczn/Screenshot-2025-09-27-19-43-56-00-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/8CkXWydy/Screenshot-2025-09-27-19-43-59-57-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/R0CpfP1D/Screenshot-2025-09-27-19-44-01-83-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/sXXPfqPp/Screenshot-2025-09-27-19-44-08-71-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/mDD3ZJ3b/Screenshot-2025-09-27-19-44-19-08-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/Pxxbf9bT/Screenshot-2025-09-27-19-44-20-51-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/QttgNwgj/Screenshot-2025-09-27-19-44-21-61-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/W33mpCmp/Screenshot-2025-09-27-19-44-22-68-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/XJJKNmKC/Screenshot-2025-09-27-19-44-23-82-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/QttgNwg7/Screenshot-2025-09-27-19-44-25-30-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/d1x2h6nG/Screenshot-2025-09-27-19-44-28-17-bb2b602500b4b39732013a74616b7e4c.jpg',
+      'https://i.postimg.cc/rmmGy3GN/Screenshot-2025-09-27-19-44-30-22-bb2b602500b4b39732013a74616b7e4c.jpg',
+    ];
+    return (
+      <div className="dark-page flex flex-col px-2 py-8">
+        {/* Back Button */}
+        <div className="max-w-6xl w-full mx-auto mb-4">
+          <Button variant="ghost" className="flex items-center gap-2 text-lg" onClick={() => navigate(-1)}>
+            <ArrowLeft className="w-5 h-5" /> Back
+          </Button>
+        </div>
+        {/* Unified Card Layout */}
+        <div className="max-w-6xl w-full mx-auto bg-gradient-to-br from-[#23263a] to-[#181c2b] rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up p-0 md:p-8 flex flex-col">
+          {/* Screenshot Carousel */}
+          <div className="w-full py-6 px-2 md:px-6 bg-[#23263a] border-b border-primary/10">
+            <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent pb-2">
+              {pinsryImages.map((src, idx) => (
+                <div key={idx} className="rounded-xl overflow-hidden border border-primary/20 bg-[#181c2b] shadow-lg min-w-[260px] max-w-[340px] flex-shrink-0">
+                  <img src={src} alt={`Pinsry Screenshot ${idx+1}`} className="w-full object-cover" style={{maxHeight: 600}} />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Details Section */}
+          <div className="flex-1 flex flex-col md:flex-row gap-0 md:gap-8 p-4 md:p-8">
+            <div className="flex-1 flex flex-col">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, i) => (
+                  <Badge key={i} variant="secondary" className="text-xs px-2 py-0.5 bg-muted/50 text-foreground-subtle">{tag}</Badge>
+                ))}
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-gradient-primary mb-2 leading-tight">
+                Pinsry - A Comprehensive Bedtime Stories Platform
+              </h1>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Overview</h2>
+              <p className="mb-4 text-base text-foreground-subtle">Pinsry represents a sophisticated, Wattpad-inspired mobile application built with Flutter and Supabase, specifically designed to revolutionize the bedtime story experience. This comprehensive platform combines the social aspects of story sharing with the intimate nature of bedtime storytelling, creating a unique community where writers and readers connect through engaging narratives designed to inspire dreams and peaceful sleep.</p>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Vision & Concept</h2>
+              <p className="mb-4 text-base text-foreground-subtle">The core vision behind Pinsry is to transform traditional bedtime storytelling into a modern, community-driven digital experience. The platform bridges the gap between classic bedtime stories and contemporary social reading platforms, emphasizing relaxation, imagination, and quality content specifically curated for evening reading sessions. Pinsry positions itself as "Where bedtime stories come to life ✨," focusing on creating a peaceful, engaging environment for both storytellers and story enthusiasts.</p>
+              <h2 className="text-lg font-semibold text-primary mb-2">Key Branding Elements</h2>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Brand Name:</b> Pinsry - suggesting pinned stories and dreamy narratives</li>
+                <li><b>Tagline:</b> "Where bedtime stories come to life ✨"</li>
+                <li><b>Visual Identity:</b> Purple-themed interface (#8B5CF6) with light, dreamy backgrounds (#F8F9FF)</li>
+                <li><b>Typography:</b> Quicksand for clean readability, Pacifico for brand identity, Comfortaa for accent text</li>
+                <li><b>Target Audience:</b> Families, bedtime story enthusiasts, creative writers, and anyone seeking peaceful evening content</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Technical Architecture & Development</h2>
+              <h3 className="text-base font-semibold text-primary mb-1">Frontend (Flutter)</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Framework:</b> Flutter SDK with Dart 3.8.1+</li>
+                <li><b>State Management:</b> Provider pattern for app-wide state management</li>
+                <li><b>Navigation:</b> Custom bottom navigation with IndexedStack for state preservation</li>
+                <li><b>UI/UX:</b> Material Design with custom theming, Google Fonts integration</li>
+                <li><b>Responsive Design:</b> Adaptive layouts for various screen sizes and orientations</li>
+                <li><b>Performance:</b> Lazy loading, image caching, and optimized animations</li>
+              </ul>
+              <h3 className="text-base font-semibold text-primary mb-1">Backend (Supabase)</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Database:</b> PostgreSQL with Row Level Security (RLS) policies</li>
+                <li><b>Authentication:</b> Supabase Auth with email/password, OTP verification, and Google Sign-In</li>
+                <li><b>Storage:</b> Secure file uploads for profile images, story covers, and audio files</li>
+                <li><b>Real-time Features:</b> Live updates for comments, likes, and social interactions</li>
+                <li><b>Edge Functions:</b> Serverless backend logic for complex operations</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Key Features & Functionality</h2>
+              <h3 className="text-base font-semibold text-primary mb-1">Core Story Features</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Story Creation:</b> Rich text editor with formatting options, cover image upload</li>
+                <li><b>Reading Experience:</b> Immersive reading interface with reading time estimates</li>
+                <li><b>Offline Reading:</b> Download stories for offline access with SQLite local storage</li>
+                <li><b>Audio Integration:</b> Text-to-speech capabilities and audio story support</li>
+                <li><b>Story Discovery:</b> Advanced search, filtering by categories, trending algorithms</li>
+              </ul>
+              <h3 className="text-base font-semibold text-primary mb-1">Social & Community Features</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>User Profiles:</b> Customizable profiles with bio, photo, and follower system</li>
+                <li><b>Comments System:</b> Threaded comments with voting and moderation</li>
+                <li><b>Bookmarks & Reading Lists:</b> Personal collections and favorite story management</li>
+                <li><b>Likes & Voting:</b> Story appreciation with sophisticated voting system</li>
+                <li><b>Follow System:</b> Author following with activity feeds and notifications</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Future Enhancements</h2>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>AI Story Generation:</b> Machine learning-powered story suggestions and completion</li>
+                <li><b>Voice Narration:</b> Professional voice actor recordings for premium stories</li>
+                <li><b>Collaborative Writing:</b> Multi-author story creation and editing</li>
+                <li><b>Reading Challenges:</b> Community events and reading milestone achievements</li>
+                <li><b>Premium Subscriptions:</b> Enhanced features for dedicated users</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Impact</h2>
+              <p className="mb-4 text-base text-foreground-subtle">Pinsry demonstrates expertise in Flutter development, backend integration with Supabase, social platform architecture, and user-centered design for creative communities. It showcases the ability to build sophisticated mobile applications with real-time features, offline capabilities, and engaging user experiences.</p>
+              {/* Action Buttons */}
+              <div className="flex gap-4 flex-wrap mt-10 mb-4 px-4 md:px-8 justify-start">
+                <a href="https://github.com/Luohino/Pinsry/releases/tag/v2" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="btn-premium text-primary-foreground font-medium px-6 py-3 text-base">
+                    <Play className="w-5 h-5 mr-2" /> Live Demo
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // MegaChat custom gallery and details
+  if (project.id === 10) {
+    const megachatImages = [
+      'https://i.postimg.cc/kXpgLZGw/Screenshot-2025-09-27-20-03-05-90-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/6qSxbkch/Screenshot-2025-09-27-20-00-39-69-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/RZt4yZjh/Screenshot-2025-09-27-20-03-08-40-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/fRdDpR6R/Screenshot-2025-09-27-20-03-11-48-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/mg7WV6Hh/Screenshot-2025-09-27-20-03-13-97-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/wjDYFbmM/Screenshot-2025-09-27-20-03-17-33-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/Xv3SPcfw/Screenshot-2025-09-27-20-03-20-89-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/xdYDZyvL/Screenshot-2025-09-27-20-03-25-86-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/ZqctzBHD/Screenshot-2025-09-27-20-03-29-21-548ba7fa16f53ae863800a8b3860f296.jpg',
+      'https://i.postimg.cc/tg5QGZkL/Screenshot-2025-09-27-20-03-31-88-548ba7fa16f53ae863800a8b3860f296.jpg',
+    ];
+    return (
+      <div className="dark-page flex flex-col px-2 py-8">
+        {/* Back Button */}
+        <div className="max-w-6xl w-full mx-auto mb-4">
+          <Button variant="ghost" className="flex items-center gap-2 text-lg" onClick={() => navigate(-1)}>
+            <ArrowLeft className="w-5 h-5" /> Back
+          </Button>
+        </div>
+        {/* Unified Card Layout */}
+        <div className="max-w-6xl w-full mx-auto bg-gradient-to-br from-[#23263a] to-[#181c2b] rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up p-0 md:p-8 flex flex-col">
+          {/* Screenshot Carousel */}
+          <div className="w-full py-6 px-2 md:px-6 bg-[#23263a] border-b border-primary/10">
+            <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-primary/30 scrollbar-track-transparent pb-2">
+              {megachatImages.map((src, idx) => (
+                <div key={idx} className="rounded-xl overflow-hidden border border-primary/20 bg-[#181c2b] shadow-lg min-w-[260px] max-w-[340px] flex-shrink-0">
+                  <img src={src} alt={`MegaChat Screenshot ${idx+1}`} className="w-full object-cover" style={{maxHeight: 600}} />
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Details Section */}
+          <div className="flex-1 flex flex-col md:flex-row gap-0 md:gap-8 p-4 md:p-8">
+            <div className="flex-1 flex flex-col">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, i) => (
+                  <Badge key={i} variant="secondary" className="text-xs px-2 py-0.5 bg-muted/50 text-foreground-subtle">{tag}</Badge>
+                ))}
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-gradient-primary mb-2 leading-tight">
+                MegaChat - A Modern Real-Time Messaging Platform
+              </h1>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Overview</h2>
+              <p className="mb-4 text-base text-foreground-subtle">MegaChat represents a contemporary mobile messaging application built with Flutter and Supabase, designed to deliver seamless real-time communication experiences. This comprehensive mobile application combines modern UI design with robust backend functionality, positioning itself as a feature-rich chat platform with enterprise-grade security and user experience.</p>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Vision & Concept</h2>
+              <p className="mb-4 text-base text-foreground-subtle">The core vision behind MegaChat was to create a messaging platform that embraces modern mobile design principles while providing reliable, real-time communication capabilities. The platform is designed around the concept of delivering "seamless 3D communication like never before," emphasizing connectivity, instant messaging, and secure user interactions through an intuitive mobile interface.</p>
+              <h2 className="text-lg font-semibold text-primary mb-2">Key Branding Elements</h2>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Brand Name:</b> MegaChat - suggesting powerful, expansive communication capabilities</li>
+                <li><b>Tagline:</b> "Connect • Chat • Share" and "Experience seamless 3D communication like never before"</li>
+                <li><b>Visual Identity:</b> Dark gradient theme with vibrant cyan accent colors (#00D4FF, #3A47D5)</li>
+                <li><b>Target Audience:</b> Mobile users seeking modern, secure, and feature-rich messaging experiences</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Technical Architecture & Development</h2>
+              <h3 className="text-base font-semibold text-primary mb-1">Frontend Framework</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Platform:</b> Flutter (Dart) with Material Design 3</li>
+                <li><b>State Management:</b> Provider pattern for reactive state management</li>
+                <li><b>Navigation:</b> Go Router for declarative routing and navigation</li>
+                <li><b>UI Components:</b> Custom widgets with flutter_animate for smooth animations</li>
+                <li><b>Design System:</b> Consistent dark theme with gradient overlays, rounded corners, and glassmorphism effects</li>
+              </ul>
+              <h3 className="text-base font-semibold text-primary mb-1">Backend & Database</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Backend as a Service:</b> Supabase for authentication, database, and real-time subscriptions</li>
+                <li><b>Database:</b> PostgreSQL via Supabase with Row Level Security (RLS)</li>
+                <li><b>Authentication:</b> Supabase Auth with email/password and social login capabilities</li>
+                <li><b>Real-time:</b> Supabase Realtime for live message updates and presence features</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Key Features & Functionality</h2>
+              <h3 className="text-base font-semibold text-primary mb-1">Core Messaging Features</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Real-time Messaging:</b> Instant message delivery with live updates using Supabase Realtime</li>
+                <li><b>Message Types:</b> Support for text, image, and file attachments</li>
+                <li><b>Read Receipts:</b> Message read status tracking and visual indicators</li>
+                <li><b>Conversation Management:</b> Threaded conversations with last message previews</li>
+                <li><b>Message History:</b> Paginated message loading with efficient data fetching</li>
+              </ul>
+              <h3 className="text-base font-semibold text-primary mb-1">User Authentication & Profiles</h3>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Secure Authentication:</b> Email/password signup and signin with Supabase Auth</li>
+                <li><b>User Profiles:</b> Comprehensive profile management with avatars, bios, and display names</li>
+                <li><b>Password Recovery:</b> Email-based password reset functionality</li>
+                <li><b>Session Management:</b> Automatic session handling and authentication state persistence</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Future Roadmap & Enhancements</h2>
+              <ul className="mb-4 text-base text-foreground-subtle list-disc list-inside space-y-1">
+                <li><b>Group Messaging:</b> Multi-user group chat functionality</li>
+                <li><b>Voice Messages:</b> Audio message recording and playback</li>
+                <li><b>Video Calling:</b> Real-time video communication integration</li>
+                <li><b>Media Gallery:</b> Shared media organization and browsing</li>
+                <li><b>End-to-End Encryption:</b> Advanced message encryption for privacy</li>
+              </ul>
+              <h2 className="text-lg font-semibold text-primary mb-2">Project Impact</h2>
+              <p className="mb-4 text-base text-foreground-subtle">MegaChat demonstrates comprehensive mobile application development expertise, showcasing Flutter framework proficiency, real-time application architecture with Supabase integration, modern mobile UI/UX design with animations, push notification system implementation, and full-stack mobile development with backend service integration. This project represents a mature, production-ready mobile messaging application that demonstrates understanding of modern mobile development practices and real-time communication systems.</p>
+              {/* Action Buttons */}
+              <div className="flex gap-4 flex-wrap mt-10 mb-4 px-4 md:px-8 justify-start">
+                <a href="https://github.com/Luohino/Megachat/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="btn-premium text-primary-foreground font-medium px-6 py-3 text-base">
+                    <Play className="w-5 h-5 mr-2" /> Live Demo
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // ...handle other projects if needed...
   return null;

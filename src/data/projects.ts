@@ -46,6 +46,28 @@ const projects = [
     featured: false,
     filters: ["Web"],
     hasImage: true
+  },
+  {
+    id: 9,
+    title: "Pinsry – Bedtime Stories Community Platform",
+    description: "A Flutter-powered story-sharing ecosystem with AI assistance, offline reading, and social engagement features designed for the modern storyteller.",
+    image: "/api/placeholder/600/400",
+    tags: ["Flutter", "Mobile App", "Social Media", "AI"],
+    demoUrl: "https://github.com/Luohino/Pinsry/releases/tag/v2",
+    featured: true,
+    filters: ["Flutter", "App"],
+    hasImage: true
+  },
+  {
+    id: 10,
+    title: "MegaChat – Modern Real-Time Communication Platform",
+    description: "A comprehensive mobile messaging application built with Flutter and Supabase, designed to deliver seamless real-time communication experiences.",
+    image: "/api/placeholder/600/400",
+    tags: ["Flutter", "Mobile App", "Real-time", "Chat"],
+    demoUrl: "https://github.com/Luohino/Megachat/releases/tag/v1.0.0",
+    featured: true,
+    filters: ["Flutter", "App"],
+    hasImage: true
   }
 ];
 

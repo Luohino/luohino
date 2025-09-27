@@ -57,7 +57,7 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full liquid-glass-3d mb-6"
           >
             <span className="text-primary font-medium">About Me</span>
           </motion.div>
@@ -100,48 +100,48 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Skills */}
+            {/* Skills - Tech-inspired Sliding Cards */}
             <div>
-              <h4 className="text-xl font-bold text-foreground mb-4">What I Do</h4>
-              <div className="grid grid-cols-2 gap-3">
+              <h4 className="section-header">What I Do</h4>
+              <div className="space-y-3">
                 {skills.map((skill, index) => {
                   const Icon = skill.icon;
                   return (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center space-x-3 p-3 rounded-lg bg-card/50 border border-border-subtle hover:border-primary/30 transition-all duration-300"
+                      whileHover={{ x: 8 }}
+                      className="skill-card flex items-center space-x-3 cursor-pointer"
                     >
-                      <Icon className={`w-5 h-5 text-${skill.color}`} />
-                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                      <Icon className="w-5 h-5 text-white relative z-10" />
+                      <span className="text-sm font-medium text-white relative z-10">{skill.name}</span>
                     </motion.div>
                   );
                 })}
               </div>
             </div>
 
-            {/* Interests */}
+            {/* Interests - Floating Organic Badges */}
             <div>
-              <h4 className="text-xl font-bold text-foreground mb-4">What I Love</h4>
-              <div className="flex flex-wrap gap-2">
+              <h4 className="section-header">What I Love</h4>
+              <div className="flex flex-wrap gap-3">
                 {interests.map((interest, index) => {
                   const Icon = interest.icon;
                   return (
                     <motion.div
                       key={interest.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                      initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
+                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + index * 0.15, type: "spring", bounce: 0.4 }}
                       viewport={{ once: true }}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ y: -5, rotate: -2, scale: 1.05 }}
+                      className="interest-badge flex items-center cursor-pointer"
                     >
-                      <Badge className={`bg-${interest.color}/10 text-${interest.color} border-${interest.color}/20 hover:bg-${interest.color}/20 transition-all duration-300`}>
-                        <Icon className="w-4 h-4 mr-2" />
-                        {interest.name}
-                      </Badge>
+                      <Icon className="interest-icon w-4 h-4 mr-2 text-white" />
+                      <span className="text-sm font-medium text-white">{interest.name}</span>
                     </motion.div>
                   );
                 })}
@@ -157,55 +157,66 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Stats Grid - Single Row with Size Variations */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
+                // Size variations: small, big, big, small
+                const isCenter = index === 1 || index === 2;
+                const cardClass = isCenter ? 'liquid-glass-mobile-card' : 'liquid-glass-mobile-card-small';
+                const iconSize = isCenter ? 'w-12 h-12' : 'w-10 h-10';
+                const iconClass = isCenter ? 'w-6 h-6' : 'w-5 h-5';
+                const textSize = isCenter ? 'text-2xl lg:text-3xl' : 'text-xl lg:text-2xl';
+                const labelSize = isCenter ? 'text-sm lg:text-base' : 'text-xs lg:text-sm';
+                
                 return (
                   <motion.div
                     key={stat.label}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                    whileInView={{ opacity: 1, y: 0, scale: isCenter ? 1.0 : 0.9 }}
                     transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="text-center p-6 rounded-2xl glass border border-border-subtle hover:border-primary/30 transition-all duration-500"
+                    whileHover={{ scale: isCenter ? 1.05 : 0.95, y: -8 }}
+                    className={`text-center ${cardClass} relative overflow-hidden transform-gpu`}
                   >
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 border border-primary/20 mb-4">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="text-3xl font-bold text-gradient-primary mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-foreground-subtle font-medium">
-                      {stat.label}
+                    <div className="relative z-10 h-full flex flex-col justify-center items-center">
+                      <div className={`inline-flex items-center justify-center ${iconSize} rounded-full bg-primary/10 border border-primary/20 mb-3 lg:mb-4`}>
+                        <Icon className={`${iconClass} text-primary`} />
+                      </div>
+                      <div className={`${textSize} font-bold text-gradient-primary mb-1 lg:mb-2 leading-tight`}>
+                        {stat.value}
+                      </div>
+                      <div className={`text-foreground-subtle font-medium ${labelSize} text-center leading-tight`}>
+                        {stat.label}
+                      </div>
                     </div>
                   </motion.div>
                 );
               })}
             </div>
 
-            {/* Philosophy Card */}
+            {/* Philosophy Card - Beautiful Creative Design */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="p-8 rounded-2xl glass border border-primary/20 bg-gradient-primary/5"
+              whileHover={{ y: -5 }}
+              className="philosophy-card"
             >
-              <h4 className="text-xl font-bold text-gradient-primary mb-4">
+              <h4 className="philosophy-title text-xl text-white">
                 My Philosophy
               </h4>
-              <p className="text-foreground-subtle leading-relaxed">
-                Code with purpose, design with heart, and build for impact. 
-                Every line of code should tell a story and every interface should 
-                create an experience that users love.
-              </p>
+              <div className="philosophy-content">
+                <span className="philosophy-highlight">Code with purpose</span>, design with heart, and{' '}
+                <span className="philosophy-highlight">build for impact</span>. Every line of code should tell a story and every interface should create an experience that users{' '}
+                <span className="philosophy-highlight">love</span>.
+              </div>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Journey Timeline */}
+        {/* Journey Timeline - Enhanced Design */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -213,68 +224,81 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <h3 className="text-3xl font-bold text-center text-gradient-primary mb-12">
+          <h3 className="text-3xl lg:text-4xl font-bold text-center text-gradient-primary mb-16">
             My Journey
           </h3>
           
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-primary/20 rounded-full" />
+          <div className="timeline-container">
+            {/* Enhanced Timeline Line */}
+            <div className="timeline-line" />
             
-            <div className="space-y-12">
-              {[
-                {
-                  year: "2025/03/17",
-                  title: "Started Coding",
-                  description: "Began my journey into the world of programming with Python and web development."
-                },
-                {
-                  year: "2025/03/18",
-                  title: "Full Stack Projects",
-                  description: "Created full-stack applications and explored cybersecurity concepts."
-                },
-                {
-                  year: "2025/06/01",
-                  title: "Flutter & Mobile Dev",
-                  description: "Dived into mobile app development with Flutter and started building cross-platform apps."
-                },
-                {
-                  year: "2025/08/31",
-                  title: "Portfolio & Growth",
-                  description: "Building my portfolio and continuing to learn new technologies and frameworks."
-                }
-              ].map((milestone, index) => (
-                                 <motion.div
-                   key={milestone.year}
-                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   transition={{ duration: 0.8, delay: 0.8 + index * 0.2 }}
-                   viewport={{ once: true }}
-                   className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                 >
-                   <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                     <Card className="glass border-border-subtle hover:border-primary/30 transition-all duration-500">
-                       <CardContent className="p-4 md:p-6">
-                         <div className="text-xl md:text-2xl font-bold text-gradient-primary mb-2">
-                           {milestone.year}
-                         </div>
-                         <h4 className="text-lg md:text-xl font-bold text-foreground mb-2">
-                           {milestone.title}
-                         </h4>
-                         <p className="text-sm md:text-base text-foreground-subtle">
-                           {milestone.description}
-                         </p>
-                       </CardContent>
-                     </Card>
-                   </div>
-                   
-                                       {/* Timeline Dot */}
-                    <div className="relative z-10 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-glow" />
-                   
-                   <div className="w-full md:w-1/2" />
-                 </motion.div>
-              ))}
-            </div>
+            {[
+              {
+                year: "2025/03/17",
+                title: "Started Coding",
+                description: "Began my journey into the world of programming with Python and web development."
+              },
+              {
+                year: "2025/03/18",
+                title: "Full Stack Projects",
+                description: "Created full-stack applications and explored cybersecurity concepts."
+              },
+              {
+                year: "2025/06/01",
+                title: "Flutter & Mobile Dev",
+                description: "Dived into mobile app development with Flutter and started building cross-platform apps."
+              },
+              {
+                year: "2025/08/31",
+                title: "Portfolio & Growth",
+                description: "Building my portfolio and continuing to learn new technologies and frameworks."
+              }
+            ].map((milestone, index) => (
+              <motion.div
+                key={milestone.year}
+                initial={{ opacity: 0, y: 60, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.8 + index * 0.2,
+                  type: "spring",
+                  bounce: 0.4
+                }}
+                viewport={{ once: true }}
+                className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
+              >
+                {/* Enhanced Timeline Card */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="timeline-card"
+                >
+                  <div className="timeline-date">
+                    {milestone.year}
+                  </div>
+                  <h4 className="timeline-title">
+                    {milestone.title}
+                  </h4>
+                  <p className="timeline-description">
+                    {milestone.description}
+                  </p>
+                </motion.div>
+                
+                {/* Enhanced Timeline Dot */}
+                <motion.div 
+                  className="timeline-dot"
+                  whileHover={{ scale: 1.3 }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 1.0 + index * 0.2,
+                    type: "spring",
+                    bounce: 0.6
+                  }}
+                  viewport={{ once: true }}
+                />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
