@@ -87,7 +87,7 @@ const FlavorSlider = () => {
           >
             {flavor.name !== "Chocolate Milk" && (
               <img
-                src={`/images/${flavor.color}-bg.svg`}
+                src={`/luohino/images/${flavor.color}-bg.svg`}
                 alt=""
                 className="absolute bottom-0 w-full h-auto"
                 loading="eager"
@@ -95,7 +95,7 @@ const FlavorSlider = () => {
             )}
 
             <img
-              src={flavor.name === "Chocolate Milk" ? "/images/Talktwirl.svg" : `/images/${flavor.color}-drink.webp`}
+              src={flavor.name === "Chocolate Milk" ? "/luohino/images/Talktwirl.svg" : `/luohino/images/${flavor.color}-drink.webp`}
               alt=""
               className="drinks object-contain"
               loading="eager"
@@ -104,7 +104,7 @@ const FlavorSlider = () => {
 
             {flavor.name !== "Chocolate Milk" && (
               <img
-                src={`/images/${flavor.color}-elements.webp`}
+                src={`/luohino/images/${flavor.color}-elements.svg`}
                 alt=""
                 className="elements w-full h-auto"
                 loading="eager"
