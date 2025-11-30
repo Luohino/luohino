@@ -66,7 +66,7 @@ const HomePage = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/luohino/">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/project/:projectId" element={<ProjectDetails />} />
