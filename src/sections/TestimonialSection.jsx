@@ -102,16 +102,10 @@ const TestimonialSection = () => {
           <div
             key={index}
             className={`vd-card ${card.translation} ${card.rotation}`}
-            onMouseEnter={() => handlePlay(index)}
-            onMouseLeave={() => handlePause(index)}
           >
-            <video
-              ref={(el) => (vdRef.current[index] = el)}
-              src={card.src}
-              playsInline
-              muted
-              loop
-              preload="metadata"
+            <img
+              src={card.img}
+              alt={card.name}
               className="size-full object-cover"
             />
           </div>
