@@ -18,12 +18,12 @@ const FooterSection = () => {
 
         {isMobile ? (
           <img
-            src="/images/footer-drink.png"
+            src="/luohino/images/footer-drink.png"
             className="absolute top-0 object-contain"
           />
         ) : (
           <video
-            src="/videos/splash.mp4"
+            src="/luohino/videos/splash.mp4"
             autoPlay
             playsInline
             muted
@@ -36,8 +36,7 @@ const FooterSection = () => {
           
           <div className="md:max-w-lg">
             <p>
-              Get Exclusive Early Access and Stay Informed About Product
-              Updates, Events, and More!
+              Reply under 24 hours
             </p>
             <div className="flex justify-between items-center border-b border-[#D9D9D9] py-5 md:mt-10">
               {/* The input field and arrow icon for newsletter signup. */}{" "}
@@ -48,7 +47,7 @@ const FooterSection = () => {
                 placeholder="Enter your email"
                 className="w-full placeholder:font-sans placeholder:text-[#999999]"
               />
-              <img src="/images/arrow.svg" alt="arrow" />
+              <img src="/luohino/images/arrow.svg" alt="arrow" />
             </div>
           </div>
         </div>
