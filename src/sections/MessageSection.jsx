@@ -16,7 +16,7 @@ const MessageSection = () => {
     });
 
     gsap.to(firstMsgSplit.words, {
-      color: "#faeade",
+      color: "#ffffff",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -24,10 +24,11 @@ const MessageSection = () => {
         start: "top center",
         end: "30% center",
         scrub: true,
+        invalidateOnRefresh: true,
       },
     });
     gsap.to(secMsgSplit.words, {
-      color: "#faeade",
+      color: "#ffffff",
       ease: "power1.in",
       stagger: 1,
       scrollTrigger: {
@@ -35,6 +36,7 @@ const MessageSection = () => {
         start: "top center",
         end: "bottom center",
         scrub: true,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -43,6 +45,7 @@ const MessageSection = () => {
       scrollTrigger: {
         trigger: ".msg-text-scroll",
         start: "top 60%",
+        invalidateOnRefresh: true,
       },
     });
     revealTl.to(".msg-text-scroll", {
@@ -55,6 +58,7 @@ const MessageSection = () => {
       scrollTrigger: {
         trigger: ".message-content p",
         start: "top center",
+        invalidateOnRefresh: true,
       },
     });
     paragraphTl.from(paragraphSplit.words, {
@@ -64,14 +68,22 @@ const MessageSection = () => {
       duration: 1,
       stagger: 0.01,
     });
+
+    // Cleanup function to revert all SplitText instances
+    return () => {
+      firstMsgSplit.revert();
+      secMsgSplit.revert();
+      paragraphSplit.revert();
+    };
   });
 
   return (
-    <section className="message-content">
+    <section id="message" className="message-content">
       <div className="container mx-auto flex-center py-28 relative">
         <div className="w-full h-full">
           <div className="msg-wrapper">
-            <h1 className="first-message">Stir up your fearless past and</h1>
+            <h1 className="first-message">App developer</h1>
+            <h1 className="first-message">Flutter developer</h1>
 
             <div
               style={{
@@ -79,22 +91,21 @@ const MessageSection = () => {
               }}
               className="msg-text-scroll"
             >
-              <div className="bg-light-brown md:pb-5 pb-3 px-5">
-                <h2 className="text-red-brown">Fuel Up</h2>
+              <div className="bg-white md:pb-3 pb-1 md:px-8 px-3">
+                <h2 className="text-black md:text-6xl text-2xl font-bold">Full stack</h2>
               </div>
             </div>
 
-            <h1 className="second-message">
-              your future with every gulp of Perfect Protein
-            </h1>
+            <h1 className="second-message">Web developer</h1>
+            <h1 className="second-message">Reverse engineer</h1>
+            <h1 className="second-message">Software engineer</h1>
+            <h1 className="second-message">AI&ML engineer</h1>
           </div>
 
           <div className="flex-center md:mt-20 mt-10">
             <div className="max-w-md px-10 flex-center overflow-hidden">
               <p>
-                Rev up your rebel spirit and feed the adventure of life with
-                SPYLT, where you’re one chug away from epic nostalgia and
-                fearless fun.
+                Hey there! I'm Luohino (or Aniket if you prefer), a 15-year-old developer from Bihar, India. I'm not just a coder - I'm a digital creator, problem solver, and tech enthusiast who loves turning ideas into reality through code.
               </p>
             </div>
           </div>

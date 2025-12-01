@@ -12,6 +12,7 @@ const BenefitSection = () => {
         start: "top 60%",
         end: "top top",
         scrub: 1.5,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -47,37 +48,44 @@ const BenefitSection = () => {
       <div className="container mx-auto pt-20">
         <div className="col-center">
           <p>
-            Unlock the Advantages: <br />
-            Explore the Key Benefits of Choosing SPYLT
+            Tools i love the most: <br />
+
           </p>
 
           <div className="mt-20 col-center">
             <ClipPathTitle
-              title={"Shelf stable"}
-              color={"#faeade"}
-              bg={"#c88e64"}
+              title={"Figma"}
+              color={"#000000ff"}
+              bg={"#ff0095ff"}
               className={"first-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Protein + Caffeine"}
+              title={"Firebase + supabase"}
               color={"#222123"}
-              bg={"#faeade"}
+              bg={"#ffbb00ff"}
               className={"second-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Infinitely recyclable"}
-              color={"#faeade"}
-              bg={"#7F3B2D"}
+              title={"React + Next.js"}
+              color={"#ffffffff"}
+              bg={"#1f08a0c9"}
               className={"third-title"}
               borderColor={"#222123"}
             />
             <ClipPathTitle
-              title={"Lactose free"}
-              color={"#2E2D2F"}
-              bg={"#FED775"}
+              title={"Flutter + Dart"}
+              color={"#000000ff"}
+              bg={"#109ad1ff"}
               className={"fourth-title"}
+              borderColor={"#222123"}
+            />
+            <ClipPathTitle
+              title={"Android Studio"}
+              color={"#00ff15ff"}
+              bg={"#ffffffff"}
+              className={"third-title"}
               borderColor={"#222123"}
             />
           </div>

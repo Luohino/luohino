@@ -1,33 +1,15 @@
 const flavorlists = [
   {
-    name: "Chocolate Milk",
-    color: "brown",
-    rotation: "md:rotate-[-8deg] rotate-0",
+    name: "TalkTwirl",
+    color: null,
+    rotation: "rotate-[-8deg]",
+    isSpecial: true,
   },
   {
-    name: "Stawberry Milk",
-    color: "red",
-    rotation: "md:rotate-[8deg] rotate-0",
-  },
-  {
-    name: "Cookies & Cream",
-    color: "blue",
-    rotation: "md:rotate-[-8deg] rotate-0",
-  },
-  {
-    name: "Peanut Butter Chocolate",
-    color: "orange",
-    rotation: "md:rotate-[8deg] rotate-0",
-  },
-  {
-    name: "Vanilla Milkshake",
-    color: "white",
-    rotation: "md:rotate-[-8deg] rotate-0",
-  },
-  {
-    name: "Max Chocolate Milk",
-    color: "black",
-    rotation: "md:rotate-[8deg] rotate-0",
+    name: "Pinsry",
+    color: null,
+    rotation: "rotate-[8deg]",
+    isSpecial: true,
   },
 ];
 
@@ -41,51 +23,27 @@ const nutrientLists = [
 
 const cards = [
   {
-    src: "/videos/f1.mp4",
+    src: "/luohino/images/x.png",
     rotation: "rotate-z-[-10deg]",
-    name: "Madison",
-    img: "/images/p1.png",
+    name: "X",
+    img: "/luohino/images/x.png",
     translation: "translate-y-[-5%]",
+    link: "https://x.com/luohino",
   },
   {
-    src: "/videos/f2.mp4",
+    src: "/luohino/images/instagram.jpg",
     rotation: "rotate-z-[4deg]",
-    name: "Alexander",
-    img: "/images/p2.png",
+    name: "Instagram",
+    img: "/luohino/images/instagram.jpg",
+    link: "https://www.instagram.com/luohinoo/?igsh=MXV6cHJ3eDR0c2k5MQ%3D%3D",
   },
   {
-    src: "/videos/f3.mp4",
-    rotation: "rotate-z-[-4deg]",
-    name: "Andrew",
-    img: "/images/p3.png",
-    translation: "translate-y-[-5%]",
-  },
-  {
-    src: "/videos/f4.mp4",
-    rotation: "rotate-z-[4deg]",
-    name: "Bryan",
-    img: "/images/p4.png",
-    translation: "translate-y-[5%]",
-  },
-  {
-    src: "/videos/f5.mp4",
+    src: "/luohino/images/github.png",
     rotation: "rotate-z-[-10deg]",
-    name: "Chris",
-    img: "/images/p5.png",
-  },
-  {
-    src: "/videos/f6.mp4",
-    rotation: "rotate-z-[4deg]",
-    name: "Devante",
-    img: "/images/p6.png",
+    name: "GitHub",
+    img: "/luohino/images/github.png",
     translation: "translate-y-[5%]",
-  },
-  {
-    src: "/videos/f7.mp4",
-    rotation: "rotate-z-[-3deg]",
-    name: "Melisa",
-    img: "/images/p7.png",
-    translation: "translate-y-[10%]",
+    link: "https://github.com/Luohino",
   },
 ];
 

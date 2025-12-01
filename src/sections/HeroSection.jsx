@@ -18,12 +18,13 @@ const HeroSection = () => {
     });
 
     const tl = gsap.timeline({
-      delay: 1,
+      delay: 0.3,
     });
 
     tl.to(".hero-content", {
       opacity: 1,
       y: 0,
+      duration: 0.5,
       ease: "power1.inOut",
     })
       .to(
@@ -51,6 +52,7 @@ const HeroSection = () => {
         start: "1% top",
         end: "bottom top",
         scrub: true,
+        invalidateOnRefresh: true,
       },
     });
     heroTl.to(".hero-container", {
@@ -59,36 +61,26 @@ const HeroSection = () => {
       yPercent: 30,
       ease: "power1.inOut",
     });
+
+    // Cleanup function to revert SplitText
+    return () => {
+      titleSplit.revert();
+    };
   });
 
   return (
-    <section className="bg-main-bg">
+    <section id="hero" className="bg-main-bg">
       <div className="hero-container">
-        {isTablet ? (
-          <>
-            {isMobile && (
-              <img
-                src="/images/hero-bg.png"
-                className="absolute bottom-40 size-full object-cover"
-              />
-            )}
-            <img
-              src="/images/hero-img.png"
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
-            />
-          </>
-        ) : (
-          <video
-            src="/videos/hero-bg.mp4"
-            autoPlay
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
+        <video
+          src="/luohino/videos/hero-bg.mp4"
+          autoPlay
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="hero-content opacity-0">
           <div className="overflow-hidden">
-            <h1 className="hero-title">Freaking Delicious</h1>
+            <h1 className="hero-title">Luohino</h1>
           </div>
           <div
             style={{
@@ -97,18 +89,13 @@ const HeroSection = () => {
             className="hero-text-scroll"
           >
             <div className="hero-subtitle">
-              <h1>Protein + Caffine </h1>
+              <h1>DEVELOPER + DESIGNER </h1>
             </div>
           </div>
 
           <h2>
-            Live life to the fullest  with SPYLT: Shatter boredom and embrace
-            your inner kid with every deliciously smooth chug.
+            15-year-old coder & builder | Full Stack & App Dev | Cybersecurity Explorer Vision-driven digital creator-crafting interactive experiences at the edge of technology
           </h2>
-
-          <div className="hero-button">
-            <p>Chug a SPYLT</p>
-          </div>
         </div>
       </div>
     </section>
