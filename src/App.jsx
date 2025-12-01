@@ -3,7 +3,7 @@ import HeroSection from "./sections/HeroSection";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
 import MessageSection from "./sections/MessageSection";
-import FlavorSection from "./sections/FlavorSection";
+import ProjectSection from "./sections/ProjectSection";
 import { useGSAP } from "@gsap/react";
 import NutritionSection from "./sections/NutritionSection";
 import BenefitSection from "./sections/BenefitSection";
@@ -49,7 +49,7 @@ const HomePage = () => {
         <div id="smooth-content">
           <HeroSection />
           <MessageSection />
-          <FlavorSection />
+          <ProjectSection />
           <NutritionSection />
 
           <div>
