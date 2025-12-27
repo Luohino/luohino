@@ -1,5 +1,33 @@
-# 💫 About Me:
-App developer<br>Flutter developer<br>Full stack<br>Web developer<br>Reverse engineer<br>Software engineer<br>AI&ML engineer<br>Hey there! I'm Luohino (or Aniket if you prefer), a<br>15-year-old developer from Bihar, India. I'm not just a<br>coder - I'm a digital creator, problem solver, and tech<br>enthusiast who loves turning ideas into reality through<br>code.
+## 💫 About Me
+
+👋 Hi, I'm **Luohino (Aniket)** — a 15-year-old developer from **Bihar, India**.
+
+- 📱 Flutter App Developer  
+- 🌐 Full Stack Web Developer  
+- 🧠 Software Engineer  
+- 🔍 Reverse Engineer  
+- 🤖 AI & ML Enthusiast  
+
+---
+
+## 🛠️ Tech Stack
+
+### Languages
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+### App & Web
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+
+### Other
+![AI](https://img.shields.io/badge/AI-000000?style=for-the-badge)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-102230?style=for-the-badge&logo=tensorflow&logoColor=orange)
+![Reverse Engineering](https://img.shields.io/badge/Reverse%20Engineering-555555?style=for-the-badge)
+
 
 
 ## 🌐 Socials:
@@ -22,4 +50,5 @@ App developer<br>Flutter developer<br>Full stack<br>Web developer<br>Reverse eng
 [![](https://visitcount.itsvg.in/api?id=Luohino&icon=0&color=0)](https://visitcount.itsvg.in)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
 
