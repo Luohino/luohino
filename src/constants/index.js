@@ -1,4 +1,4 @@
-const flavorlists = [
+const projectLists = [
   {
     name: "Chocolate Milk",
     color: "brown",
@@ -42,4 +42,4 @@ const cards = [
   },
 ];
 
-export { flavorlists, nutrientLists, cards };
+export { projectLists, nutrientLists, cards };
