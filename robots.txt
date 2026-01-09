@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luohino.github.io/portfolio/sitemap.xml
