@@ -21,7 +21,7 @@ const ProjectsSlider = () => {
         scrollTrigger: {
           trigger: ".projects-section",
           start: "2% top",
-          end: isTablet ? "+=2000" : "+=3500",
+          end: isTablet ? "+=3000" : "+=5000",
           scrub: 0.5,
           pin: true,
           anticipatePin: 1,
@@ -32,7 +32,7 @@ const ProjectsSlider = () => {
       });
 
       tl.to(".projects-section", {
-        x: "-100vw",
+        x: "-150vw",
         ease: "none",
         force3D: true,
       });
@@ -97,11 +97,18 @@ const ProjectsSlider = () => {
             )}
 
             <img
-              src={flavor.isSpecial ? `/luohino/images/${flavor.name === "TalkTwirl" ? "Talktwirl" : "Pinsry"}.svg` : `/luohino/images/${flavor.color}-drink.webp`}
+              src={
+                flavor.isSpecial
+                  ? flavor.name === "TalkTwirl"
+                    ? "/luohino/images/Talktwirl.svg"
+                    : flavor.name === "Pinsry"
+                      ? "/luohino/images/Pinsry.svg"
+                      : "/luohino/images/iphone15pro.png"
+                  : `/luohino/images/${flavor.color}-drink.webp`
+              }
               alt={flavor.name}
-              className={`${flavor.isSpecial ? "w-full h-full object-contain" : "drinks object-contain"}`}
+              className={`${flavor.isSpecial ? (flavor.name === "iPhone 15 Pro" ? "max-w-full max-h-full object-contain border border-white" : "w-full h-full object-contain") : "drinks object-contain"}`}
               loading="eager"
-              onLoad={() => ScrollTrigger.refresh()}
             />
 
             {!flavor.isSpecial && (
@@ -116,8 +123,15 @@ const ProjectsSlider = () => {
             {!flavor.isSpecial && <h1>{flavor.name}</h1>}
 
             <button
-              onClick={() => navigate(`/project/${flavor.name.toLowerCase().replace(/\s+/g, "-")}`)}
-              className="absolute bottom-5 right-5 bg-white text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all"
+              onClick={(e) => {
+                const btn = e.currentTarget;
+                const originalText = btn.innerText;
+                btn.innerText = "Coming Soon";
+                setTimeout(() => {
+                  btn.innerText = originalText;
+                }, 2000);
+              }}
+              className="absolute bottom-5 right-5 bg-white text-black font-semibold px-6 py-2 rounded-full text-sm hover:bg-opacity-90 transition-all min-w-[120px]"
             >
               See Details
             </button>

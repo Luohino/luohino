@@ -11,6 +11,12 @@ const flavorlists = [
     rotation: "rotate-[8deg]",
     isSpecial: true,
   },
+  {
+    name: "iPhone 15 Pro",
+    color: null,
+    rotation: "rotate-[-5deg]",
+    isSpecial: true,
+  },
 ];
 
 const nutrientLists = [

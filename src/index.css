@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Bebas+Neue&display=swap");
 @import "tailwindcss";
 
 @font-face {
@@ -147,7 +147,7 @@ body::-webkit-scrollbar {
       @apply lg:h-dvh md:min-h-fit w-full mt-0 md:mt-20 xl:mt-0;
 
       .flavors {
-        @apply h-full w-full flex flex-row items-center lg:justify-center justify-start 2xl:gap-72 lg:gap-52 md:gap-24 gap-5 flex-nowrap;
+        @apply h-full w-full flex flex-row items-center lg:justify-start justify-start 2xl:gap-72 lg:gap-52 md:gap-24 gap-5 flex-nowrap;
         will-change: transform;
         padding-left: 5vw;
 

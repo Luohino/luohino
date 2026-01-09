@@ -75,7 +75,9 @@ const HeroSection = () => {
           src="/luohino/videos/hero-bg.mp4"
           autoPlay
           muted
+          loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="hero-content opacity-0">

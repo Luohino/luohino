@@ -23,7 +23,7 @@ const ProjectsTitle = () => {
       },
     });
 
-    gsap.to(".projects-text-scroll", {
+    gsap.to(".production-ready-scroll", {
       duration: 0.8,
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       scrollTrigger: {
@@ -61,7 +61,7 @@ const ProjectsTitle = () => {
 
       <div
         style={{
-          clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         }}
         className="projects-text-scroll"
       >
@@ -70,8 +70,15 @@ const ProjectsTitle = () => {
         </div>
       </div>
 
-      <div className="overflow-hidden 2xl:py-0 py-3 second-text-split">
-        <h1 className="text-black">Production ready</h1>
+      <div
+        style={{
+          clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+        }}
+        className="production-ready-scroll"
+      >
+        <div className="overflow-hidden 2xl:py-0 py-3 second-text-split">
+          <h1 className="text-black">Production ready</h1>
+        </div>
       </div>
     </div>
   );

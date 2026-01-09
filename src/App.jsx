@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import Preloader from "./components/Preloader";
 import HeroSection from "./sections/HeroSection";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
@@ -44,6 +45,7 @@ const HomePage = () => {
 
   return (
     <main>
+      <Preloader />
       <NavBar />
       <div id="smooth-wrapper">
         <div id="smooth-content">
