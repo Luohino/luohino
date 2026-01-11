@@ -119,13 +119,13 @@ body::-webkit-scrollbar {
     }
   }
 
-  .flavor-section {
+  .project-section {
     @apply h-dvh bg-white;
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
 
-    .flavor-text-scroll {
+    .project-text-scroll {
       @apply rotate-[-3deg] md:translate-y-5 border-[.5vw] border-white absolute z-10;
       will-change: clip-path;
       transform: translateZ(0);
@@ -146,7 +146,7 @@ body::-webkit-scrollbar {
     .slider-wrapper {
       @apply lg:h-dvh md:min-h-fit w-full mt-0 md:mt-20 xl:mt-0;
 
-      .flavors {
+      .projects {
         @apply h-full w-full flex flex-row items-center lg:justify-center justify-start 2xl:gap-72 lg:gap-52 md:gap-24 gap-5 flex-nowrap;
         will-change: transform;
         padding-left: 5vw;
