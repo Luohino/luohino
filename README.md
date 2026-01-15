@@ -1,6 +1,6 @@
 ## 💫 About Me
 
-👋 Hi, I'm **Luohino (Aniket)** — a 15-year-old developer from **Bihar, India**.
+👋 Hi, I'm **Luohino (Aniket)** : A 16-year-old developer from **Bihar, India**.
 
 - 📱 Flutter App Developer  
 - 🌐 Full Stack Web Developer  
@@ -19,4 +19,5 @@
 ![AI](https://img.shields.io/badge/AI-000000?style=for-the-badge)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-102230?style=for-the-badge&logo=tensorflow&logoColor=orange)
 ![Reverse Engineering](https://img.shields.io/badge/Reverse%20Engineering-555555?style=for-the-badge)
+
 
