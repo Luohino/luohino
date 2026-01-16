@@ -105,7 +105,7 @@ const MessageSection = () => {
           <div className="flex-center md:mt-20 mt-10">
             <div className="max-w-md px-10 flex-center overflow-hidden">
               <p>
-                Hey there! I'm Luohino (or Aniket if you prefer), a 15-year-old developer from Bihar, India. I'm not just a coder - I'm a digital creator, problem solver, and tech enthusiast who loves turning ideas into reality through code.
+                Hey there! I'm Luohino (or Aniket if you prefer), a 16-year-old developer from Bihar, India. I'm not just a coder - I'm a digital creator, problem solver, and tech enthusiast who loves turning ideas into reality through code.
               </p>
             </div>
           </div>
@@ -116,3 +116,4 @@ const MessageSection = () => {
 };
 
 export default MessageSection;
+
