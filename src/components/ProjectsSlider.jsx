@@ -21,8 +21,8 @@ const ProjectsSlider = () => {
         scrollTrigger: {
           trigger: ".projects-section",
           start: "2% top",
-          end: isTablet ? "+=3000" : "+=5000",
-          scrub: 0.5,
+          end: isTablet ? "+=100" : "+=5000",
+          scrub: isTablet ? 0 : 0.5,
           pin: true,
           anticipatePin: 1,
           fastScrollEnd: true,

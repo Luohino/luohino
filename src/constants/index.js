@@ -44,13 +44,31 @@ const cards = [
     link: "https://www.instagram.com/luohinoo/?igsh=MXV6cHJ3eDR0c2k5MQ%3D%3D",
   },
   {
+    src: "/luohino/images/discord.png",
+    rotation: "rotate-z-[-6deg]",
+    name: "Discord",
+    img: "/luohino/images/discord.png",
+    translation: "translate-y-[4%]",
+    link: "https://discord.com/users/luohino",
+  },
+
+  {
+    src: "/luohino/images/linkedin.png",
+    rotation: "rotate-z-[6deg]",
+    name: "LinkedIn",
+    img: "/luohino/images/linkedin.png",
+    translation: "translate-y-[12%]",
+    link: "https://www.linkedin.com/in/luohino-o-43620931b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  },
+  {
     src: "/luohino/images/github.png",
     rotation: "rotate-z-[-10deg]",
     name: "GitHub",
     img: "/luohino/images/github.png",
-    translation: "translate-y-[5%]",
+    translation: "translate-y-[8%]",
     link: "https://github.com/Luohino",
-  },
+  }
+
 ];
 
 export { flavorlists, nutrientLists, cards };

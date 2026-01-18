@@ -156,32 +156,32 @@ const FooterSection = () => {
   const toast =
     feedback.message && typeof window !== "undefined"
       ? createPortal(
-          <div
-            role="status"
-            aria-live="polite"
-            key={feedback.id}
-            className="fixed bottom-5 left-5 z-[9999] pointer-events-none"
-          >
-            <div className="min-w-[240px] max-w-xs text-sm md:text-base font-sans px-4 py-3 shadow-[0_15px_35px_rgba(0,0,0,0.6)] border border-white/15 bg-white text-black">
-              <p className="font-semibold uppercase tracking-wide text-xs text-black/70">
-                {feedback.type === "success"
-                  ? "Message sent"
-                  : feedback.type === "info"
+        <div
+          role="status"
+          aria-live="polite"
+          key={feedback.id}
+          className="fixed bottom-5 left-5 z-[9999] pointer-events-none"
+        >
+          <div className="min-w-[240px] max-w-xs text-sm md:text-base font-sans px-4 py-3 shadow-[0_15px_35px_rgba(0,0,0,0.6)] border border-white/15 bg-white text-black">
+            <p className="font-semibold uppercase tracking-wide text-xs text-black/70">
+              {feedback.type === "success"
+                ? "Message sent"
+                : feedback.type === "info"
                   ? "Sending..."
                   : "Something went wrong"}
-              </p>
-              <p className="text-xs sm:text-sm mt-1 leading-snug text-black">
-                {feedback.message}
-              </p>
-            </div>
-          </div>,
-          document.body
-        )
+            </p>
+            <p className="text-xs sm:text-sm mt-1 leading-snug text-black">
+              {feedback.message}
+            </p>
+          </div>
+        </div>,
+        document.body
+      )
       : null;
 
   return (
     <section id="footer" className="footer-section bg-main-bg relative">
-      <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[12vh]">
+      <div className="min-h-screen relative md:pt-[20vh] pt-[12vh] pb-20">
         <div className="overflow-hidden z-10">
           <h1 className="general-title text-center text-milk py-5">
             Let&apos;s build something together
@@ -211,9 +211,8 @@ const FooterSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                    className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition font-sans ${
-                        errors.name ? "border-red-500" : "border-white/10"
-                      }`}
+                      className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition font-sans ${errors.name ? "border-red-500" : "border-white/10"
+                        }`}
                     />
                     {errors.name && (
                       <p className="text-red-400 text-xs mt-1">{errors.name}</p>
@@ -229,9 +228,8 @@ const FooterSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="you@example.com"
-                    className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition font-sans ${
-                        errors.email ? "border-red-500" : "border-white/10"
-                      }`}
+                      className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition font-sans ${errors.email ? "border-red-500" : "border-white/10"
+                        }`}
                     />
                     {errors.email && (
                       <p className="text-red-400 text-xs mt-1">
@@ -266,14 +264,13 @@ const FooterSection = () => {
                     <span>
                       {formData.budget
                         ? budgetOptions.find(
-                            (option) => option.value === formData.budget
-                          )?.label
+                          (option) => option.value === formData.budget
+                        )?.label
                         : "Select a range"}
                     </span>
                     <svg
-                      className={`w-4 h-4 text-milk transition-transform ${
-                        isBudgetOpen ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 text-milk transition-transform ${isBudgetOpen ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -296,11 +293,10 @@ const FooterSection = () => {
                             }));
                             setIsBudgetOpen(false);
                           }}
-                          className={`w-full text-left px-4 py-2 text-sm md:text-base transition font-medium font-sans ${
-                            formData.budget === option.value
+                          className={`w-full text-left px-4 py-2 text-sm md:text-base transition font-medium font-sans ${formData.budget === option.value
                               ? "bg-white/10 text-white"
                               : "text-milk/80 hover:bg-white/5"
-                          }`}
+                            }`}
                         >
                           {option.label}
                         </button>
@@ -329,9 +325,8 @@ const FooterSection = () => {
                     onChange={handleInputChange}
                     rows={5}
                     placeholder="Share your idea, goals, and timeline..."
-                    className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition resize-none font-sans ${
-                      errors.message ? "border-red-500" : "border-white/10"
-                    }`}
+                    className={`w-full rounded-2xl bg-black/30 border px-3 py-2 text-milk text-sm md:text-base outline-none focus:ring-2 focus:ring-white/40 transition resize-none font-sans ${errors.message ? "border-red-500" : "border-white/10"
+                      }`}
                   />
                   {errors.message && (
                     <p className="text-red-400 text-xs mt-1">

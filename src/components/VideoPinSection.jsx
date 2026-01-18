@@ -24,7 +24,7 @@ const VideoPinSection = () => {
           scrollTrigger: {
             trigger: ".vd-pin-section",
             start: "-15% top",
-            end: "200% top",
+            end: "50% top",
             scrub: 1.5,
             pin: true,
             invalidateOnRefresh: true,

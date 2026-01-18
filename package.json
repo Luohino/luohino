@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://Luohino.github.io/luohino",
-  "homepage": "https://Luohino.github.io/luohino",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

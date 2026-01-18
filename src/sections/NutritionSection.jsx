@@ -116,7 +116,7 @@ const NutritionSection = () => {
   }, { dependencies: [], scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="nutrition-section py-20 md:py-32 min-h-[100vh] md:min-h-[160vh]">
+    <section ref={sectionRef} className="nutrition-section py-20 md:py-32 min-h-[100vh] md:min-h-screen">
       <div className="container mx-auto px-5">
         {/* Header */}
         <div className="flex flex-col justify-between md:px-10 px-5 mb-16">

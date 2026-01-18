@@ -96,7 +96,7 @@ const HeroSection = () => {
           </div>
 
           <h2>
-            15-year-old coder & builder | Full Stack & App Dev | Cybersecurity Explorer Vision-driven digital creator-crafting interactive experiences at the edge of technology
+            16-year-old coder & builder | Full Stack & App Dev | Cybersecurity Explorer Vision-driven digital creator-crafting interactive experiences at the edge of technology
           </h2>
         </div>
       </div>
