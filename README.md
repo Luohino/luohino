@@ -1,6 +1,6 @@
 ##  About Me
 
- Hi, I'm **Luohino (Aniket)** : A 16-year-old developer from **Bihar, India**.
+ Hi, I'm **Luohino (Aniket)** : A 16-year-old developer from **Delhi, India**.
 
 -  Flutter App Developer  
 -  Full Stack Web Developer  
